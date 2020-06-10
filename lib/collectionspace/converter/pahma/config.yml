@@ -1,0 +1,149 @@
+---
+registered_authorities:
+  - citationauthorities
+  - conceptauthorities
+  - locationauthorities
+  - orgauthorities
+  - personauthorities
+  - placeauthorities
+registered_procedures:
+  - Acquisition
+  - CollectionObject
+  - ConditionCheck
+  - Exhibition
+  - Group
+  - Intake
+  - LoanIn
+  - LoanOut
+  - Media
+  - Movement
+  - ObjectExit
+  - ValuationControl
+registered_profiles:
+  acquisition:
+    type: Procedures
+    enabled: false
+    required_headers:
+      - acquisitionreferencenumber
+    config:
+      Acquisition:
+        mapper: CoreAcquisition
+        identifier: acquisitionreferencenumber
+        title: acquisitionreferencenumber
+      Authorities:
+        - name_field: acquisitionauthorizer
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerPerson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerOrganization
+          authority_type: Organization
+          authority_subtype: organization
+  cataloging:
+    type: Procedures
+    enabled: true
+    required_headers:
+      - objectnumber
+    config:
+      CollectionObject:
+        mapper: PAHMACollectionObject
+        identifier: objectnumber
+        title: objectnumber
+      Authorities:
+        - name_field: contentperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: inscriber
+          authority_type: Person
+          authority_subtype: person
+        - name_field: productionperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: productionorg
+          authority_type: Organization
+          authority_subtype: organization
+      Vocabularies:
+        - name_field: titlelanguage
+          vocabulary_subtype: languages
+        - name_field: titletranslationlanguage
+          vocabulary_subtype: languages
+  hierarchies:
+    type: Hierarchies
+    enabled: true
+    required_headers:
+      - type
+      - narrower
+      - broader
+    config: {}
+  movement:
+    type: Procedures
+    enabled: true
+    required_headers:
+      - movementreferencenumber
+    config:
+      Movement:
+        mapper: CoreMovement
+        identifier: movementreferencenumber
+        title: movementreferencenumber
+      Authorities:
+        - name_field: movementcontact
+          authority_type: Person
+          authority_subtype: person
+        - name_field: inventorycontact
+          authority_type: Person
+          authority_subtype: person
+  nomenclature:
+    type: Authorities
+    enabled: true
+    identify_by_column: termdisplayname
+    required_headers:
+      - termdisplayname
+    defaults:
+      historicalstatus: current
+      termlanguage: English
+      termprefforlang: true
+      termsource: AASLH Nomenclature
+      termstatus: accepted
+      termtype: descriptor
+    config:
+      mapper: CoreConcept
+      name_field: termdisplayname
+      authority_type: Concept
+      authority_subtype: nomenclature
+      Authorities:
+        - name_field: termsource
+          authority_type: Citation
+          authority_subtype: citation
+      Vocabularies:
+        - name_field: termlanguage
+          vocabulary_subtype: languages
+  osteology:
+    type: Procedures
+    enabled: true
+    required_headers:
+      - inventoryid
+    config:
+      Osteology:
+        mapper: AnthroOsteology
+        identifier: inventoryid
+        title: inventoryid
+      Authorities:
+        - name_field: sexdeterminationanalyst
+          authority_type: Person
+          authority_subtype: person
+        - name_field: osteoageestimateanalyst
+          authority_type: Person
+          authority_subtype: person
+        - name_field: inventoryanalyst
+          authority_type: Person
+          authority_subtype: person
+  relationships:
+    type: Relationships
+    enabled: true
+    required_headers:
+      - subjectdocumenttype
+      - subjectidentifier
+      - objectdocumenttype
+      - objectidentifier
+    config: {}
