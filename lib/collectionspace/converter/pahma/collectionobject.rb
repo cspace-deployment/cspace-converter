@@ -149,6 +149,35 @@ module CollectionSpace
             oai_data,
             oai_transforms
           )
+          pairs = {
+              'pahmatmslegacydepartment' => 'pahmaTmsLegacyDepartment',
+              'pahmaobjectid' => 'pahmaObjectID',
+              'pahmaobjectstatus' => 'pahmaObjectStatus',
+              'iscomponent' => 'isComponent',
+
+              'pahmaaltNum' => 'pahmaAltNum',
+              'objectclass' => 'objectClass',
+              'ownershiphistory' => 'ownershipHistory',
+              'ageestimate' => 'ageEstimate'
+          }
+          pairstransforms = {
+              'pahmaobjectstatus' => {'vocab' => 'pahmaobjectstatus'}
+          }
+          CSXML::Helpers.add_pairs(xml, attributes, pairs, pairstransforms)
+
+          # pahmaFieldCollectionDateGroupList, pahmaFieldCollectionDateGroup
+          repeats = {
+              'pahmacollection' => ['pahmaCollectionList', 'pahmaCollection'],
+              'pahmafieldcollectionplace' => ['pahmaFieldCollectionPlaceList', 'pahmaFieldCollectionPlace'],
+              'pahmaangpracodelegacy' => ['pahmaNagpraCodeLegacyList', 'pahmaNagpraCodeLegacy'],
+              'pahmaethnographicfilecode' => ['pahmaEthnographicFileCodeList', 'pahmaEthnographicFileCode'],
+              'pahmafieldcollectiondate' => ['pahmaFieldCollectionDateGroupList', 'pahmaFieldCollectionDateGroup']
+          }
+          repeatstransforms = {
+              'pahmafieldcollectiondate' => {'special' => 'structured_date'}
+          }
+          CSXML::Helpers.add_repeats(xml, attributes, repeats, repeatstransforms)
+
         end
       end # class PAHMACollectionObject
     end # module PAHMA
