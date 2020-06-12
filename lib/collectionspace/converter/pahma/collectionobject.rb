@@ -104,8 +104,7 @@ module CollectionSpace
             'objectnamelanguage' => 'objectNameLanguage'
           }
           obj_name_transforms = {
-            'objectnamelanguage' => { 'vocab' => 'languages' },
-            'objectname' => { 'authority' => %w[conceptauthorities nomenclature] }
+            'objectnamelanguage' => { 'vocab' => 'languages' }
           }
           CSXML.add_single_level_group_list(
             xml,
