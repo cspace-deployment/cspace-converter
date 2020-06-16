@@ -1,0 +1,200 @@
+# acquisition
+# collectionobject
+# concept
+# conservation
+# loanin
+# $ loanout
+# objectexit
+# taxon
+
+registered_authorities:
+  # - conceptauthorities
+  - taxonomyauthority
+registered_procedures:
+  # - Acquisition
+  # - CollectionObject
+  # - Conservation
+  # - LoanIn
+  # - LoanOut
+  # - ObjectExit
+registered_profiles:
+  # acquisition:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: acquisitionreferencenumber
+  #   required_headers:
+  #     - acquisitionreferencenumber
+  #   config:
+  #     Acquisition:
+  #       mapper: CoreAcquisition
+  #       identifier: acquisitionreferencenumber
+  #       title: acquisitionreferencenumber
+  #     Authorities:
+  #       - name_field: acquisitionauthorizer
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: ownerperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: ownerorganization
+  #         authority_type: Organization
+  #         authority_subtype: organization
+  # cataloging:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: objectnumber
+  #   required_headers:
+  #     - objectnumber
+  #   config:
+  #     CollectionObject:
+  #       mapper: CoreCollectionObject
+  #       identifier: objectnumber
+  #       title: objectnumber
+  #     Authorities:
+  #       - name_field: contentperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: inscriptioncontentinscriberperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: objectproductionperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: objectproductionorganization
+  #         authority_type: Organization
+  #         authority_subtype: organization
+  #     Vocabularies:
+  #       - name_field: titlelanguage
+  #         vocabulary_subtype: languages
+  #       - name_field: titletranslationlanguage
+  #         vocabulary_subtype: languages
+  # conservation:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: conservationnumber
+  #   required_headers:
+  #     - conservationnumber
+  #   config:
+  #     Conservation:
+  #       mapper: CoreConservation
+  #       identifier: conservationnumber
+  #       title: conservationnumber
+  #     Authorities:
+  #       - name_field: conservator
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: otherparty
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: approvedby
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: researcher
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: sampleby
+  #         authority_type: Person
+  #         authority_subtype: person
+  # loanin:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: loaninnumber
+  #   required_headers:
+  #     - loaninnumber
+  #   config:
+  #     LoanIn:
+  #       mapper: CoreLoanIn
+  #       identifier: loaninnumber
+  #       title: loaninnumber
+  #     Authorities:
+  #       - name_field: lendersauthorizer
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: borrowersauthorizer
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: lenderorganization
+  #         authority_type: Organization
+  #         authority_subtype: organization
+  #       - name_field: lenderperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  # loanout:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: loanoutnumber
+  #   required_headers:
+  #     - loanoutnumber
+  #   config:
+  #     LoanOut:
+  #       mapper: CoreLoanOut
+  #       identifier: loanoutnumber
+  #       title: loanoutnumber
+  #     Authorities:
+  #       - name_field: lendersauthorizer
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: borrowersauthorizer
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: borrowerperson
+  #         authority_type: Person
+  #         authority_subtype: person
+  #       - name_field: borrowerorganization
+  #         authority_type: Organization
+  #         authority_subtype: organization
+  # labeltext: # concept
+  #   type: Authorities
+  #   enabled: true
+  #   identify_by_column: termdisplayname
+  #   required_headers:
+  #     - termdisplayname
+  #   defaults:
+  #     historicalstatus: current
+  #     termlanguage: English
+  #     termprefforlang: true
+  #     termsource: AASLH Nomenclature
+  #     termstatus: accepted
+  #     termtype: descriptor
+  #   config:
+  #     mapper: CoreConcept
+  #     name_field: termdisplayname
+  #     authority_type: Concept
+  #     authority_subtype: nomenclature
+  #     Authorities:
+  #       - name_field: termsource
+  #         authority_type: Citation
+  #         authority_subtype: citation
+  #     Vocabularies:
+  #       - name_field: termlanguage
+  #         vocabulary_subtype: languages
+  # objectexit:
+  #   type: Procedures
+  #   enabled: true
+  #   identify_by_column: exitnumber
+  #   required_headers:
+  #     - exitnumber
+  #   config:
+  #     ObjectExit:
+  #       mapper: CoreObjectExit
+  #       identifier: exitnumber
+  #       title: exitnumber
+  #     Authorities:
+  #       - name_field: currentownerorganization
+  #         authority_type: Organization
+  #         authority_subtype: organization
+  #       - name_field: currentownerperson
+  #         authority_type: Person
+  #         authority_subtype: person        
+  taxonomy:
+    type: Authorities
+    enabled: true
+    required_headers:
+      - termdisplayname
+    config:
+      mapper: HerbariumTaxon
+      name_field: termdisplayname
+      authority_type: Taxon
+      authority_subtype: taxon
+      Authorities: []
+      Vocabularies: []
