@@ -1,44 +1,17 @@
-# acquisition
 # collectionobject
 # concept
-# conservation
 # loanin
-# $ loanout
-# objectexit
+# loanout
 # taxon
 
 registered_authorities:
   # - conceptauthorities
   - taxonomyauthority
 registered_procedures:
-  # - Acquisition
   # - CollectionObject
-  # - Conservation
   # - LoanIn
   # - LoanOut
-  # - ObjectExit
 registered_profiles:
-  # acquisition:
-  #   type: Procedures
-  #   enabled: true
-  #   identify_by_column: acquisitionreferencenumber
-  #   required_headers:
-  #     - acquisitionreferencenumber
-  #   config:
-  #     Acquisition:
-  #       mapper: CoreAcquisition
-  #       identifier: acquisitionreferencenumber
-  #       title: acquisitionreferencenumber
-  #     Authorities:
-  #       - name_field: acquisitionauthorizer
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: ownerperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: ownerorganization
-  #         authority_type: Organization
-  #         authority_subtype: organization
   # cataloging:
   #   type: Procedures
   #   enabled: true
@@ -95,54 +68,51 @@ registered_profiles:
   #       - name_field: sampleby
   #         authority_type: Person
   #         authority_subtype: person
-  # loanin:
-  #   type: Procedures
-  #   enabled: true
-  #   identify_by_column: loaninnumber
-  #   required_headers:
-  #     - loaninnumber
-  #   config:
-  #     LoanIn:
-  #       mapper: CoreLoanIn
-  #       identifier: loaninnumber
-  #       title: loaninnumber
-  #     Authorities:
-  #       - name_field: lendersauthorizer
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: borrowersauthorizer
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: lenderorganization
-  #         authority_type: Organization
-  #         authority_subtype: organization
-  #       - name_field: lenderperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  # loanout:
-  #   type: Procedures
-  #   enabled: true
-  #   identify_by_column: loanoutnumber
-  #   required_headers:
-  #     - loanoutnumber
-  #   config:
-  #     LoanOut:
-  #       mapper: CoreLoanOut
-  #       identifier: loanoutnumber
-  #       title: loanoutnumber
-  #     Authorities:
-  #       - name_field: lendersauthorizer
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: borrowersauthorizer
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: borrowerperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: borrowerorganization
-  #         authority_type: Organization
-  #         authority_subtype: organization
+  loanin:
+    type: Procedures
+    enabled: true
+    identify_by_column: loaninnumber
+    required_headers:
+      - loaninnumber
+    config:
+      LoanIn:
+        mapper: HerbariumLoanIn
+        identifier: loaninnumber
+        title: loaninnumber
+      Authorities:
+        # - name_field: taxonomy
+          # authority_type: Taxon
+          # authority_subtype: taxon
+        - name_field: transferinorg
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: transferinperson
+          authority_type: Person
+          authority_subtype: person
+  loanout:
+    type: Procedures
+    enabled: true
+    identify_by_column: loanoutnumber
+    required_headers:
+      - loanoutnumber
+    config:
+      LoanOut:
+        mapper: HerbariumLoanOut
+        identifier: loanoutnumber
+        title: loanoutnumber
+      Authorities:
+        # - name_field: lendersauthorizer
+        #   authority_type: Person
+        #   authority_subtype: person
+        # - name_field: borrowersauthorizer
+        #   authority_type: Person
+        #   authority_subtype: person
+        # - name_field: borrowerperson
+        #   authority_type: Person
+        #   authority_subtype: person
+        # - name_field: borrowerorganization
+        #   authority_type: Organization
+        #   authority_subtype: organization
   # labeltext: # concept
   #   type: Authorities
   #   enabled: true
@@ -168,24 +138,6 @@ registered_profiles:
   #     Vocabularies:
   #       - name_field: termlanguage
   #         vocabulary_subtype: languages
-  # objectexit:
-  #   type: Procedures
-  #   enabled: true
-  #   identify_by_column: exitnumber
-  #   required_headers:
-  #     - exitnumber
-  #   config:
-  #     ObjectExit:
-  #       mapper: CoreObjectExit
-  #       identifier: exitnumber
-  #       title: exitnumber
-  #     Authorities:
-  #       - name_field: currentownerorganization
-  #         authority_type: Organization
-  #         authority_subtype: organization
-  #       - name_field: currentownerperson
-  #         authority_type: Person
-  #         authority_subtype: person        
   taxonomy:
     type: Authorities
     enabled: true

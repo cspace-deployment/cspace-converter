@@ -17,7 +17,7 @@ module CollectionSpace
             xml.send(
               'ns2:taxon_common',
               'xmlns:ns2' => 'http://collectionspace.org/services/taxonomy',
-              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
              ) do 
               xml.parent.namespace = nil
               HerbariumTaxon.map(xml, attributes)
@@ -26,7 +26,7 @@ module CollectionSpace
             xml.send(
               'ns2:taxon_herbarium',
               'xmlns:ns2' => 'http://collectionspace.org/services/taxon/local/herbarium',
-              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
+              'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do 
               xml.parent.namespace = nil
               HerbariumTaxon.map_herbarium(xml, attributes)
