@@ -9,35 +9,50 @@ registered_procedures:
   # - LoanIn
   # - LoanOut
 registered_profiles:
-  # cataloging:
-  #   type: Procedures
-  #   enabled: true
-  #   identify_by_column: objectnumber
-  #   required_headers:
-  #     - objectnumber
-  #   config:
-  #     CollectionObject:
-  #       mapper: CoreCollectionObject
-  #       identifier: objectnumber
-  #       title: objectnumber
-  #     Authorities:
-  #       - name_field: contentperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: inscriptioncontentinscriberperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: objectproductionperson
-  #         authority_type: Person
-  #         authority_subtype: person
-  #       - name_field: objectproductionorganization
-  #         authority_type: Organization
-  #         authority_subtype: organization
-  #     Vocabularies:
-  #       - name_field: titlelanguage
-  #         vocabulary_subtype: languages
-  #       - name_field: titletranslationlanguage
-  #         vocabulary_subtype: languages
+  cataloging:
+    type: Procedures
+    enabled: true
+    identify_by_column: objectnumber
+    required_headers:
+      - objectnumber
+    config:
+      CollectionObject:
+        mapper: HerbariumCollectionObject
+        identifier: objectnumber
+        title: objectnumber
+      Authorities:
+        - name_field: labelheader
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: labelfooter
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: herbhybridparent
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: herbtypespecimenassertionBy
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: herbtypespecimenbasionym
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: herbassoctaxon
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: herbcollectionplace
+          authority_type: Place
+          authority_subtype: place
+      Vocabularies:
+        - name_field: posttopublic
+          vocabulary_subtype: yesnovalues
+        - name_field: localnamelanguage
+          vocabulary_subtype: languages
+        - name_field: herbhybridparentqualifier
+          vocabulary_subtype: hybridparentqualifier
+        - name_field: herbtypespecimenkind
+          vocabulary_subtype: typespecimenkind
+        - name_field: herbassoctaxoninteraction
+          vocabulary_subtype: assoctaxoninteraction
   # conservation:
   #   type: Procedures
   #   enabled: true
@@ -86,6 +101,11 @@ registered_profiles:
         - name_field: transferinperson
           authority_type: Person
           authority_subtype: person
+      Vocabularies:
+        - name_field: majorgroup
+          vocabulary_subtype: majortaxongroup
+        - name_field: objKind
+          vocabulary_subtype: objectkind
   loanout:
     type: Procedures
     enabled: true
@@ -101,6 +121,13 @@ registered_profiles:
         - name_field: taxonomy
           authority_type: Taxon
           authority_subtype: taxon
+      Vocabularies:
+        - name_field: majorgroup
+          vocabulary_subtype: majortaxongroup
+        - name_field: transportmethod
+          vocabulary_subtype: transportmethod
+        - name_field: objKind
+          vocabulary_subtype: objectkind
   # labeltext: # concept
   #   type: Authorities
   #   enabled: true
@@ -136,5 +163,18 @@ registered_profiles:
       name_field: termdisplayname
       authority_type: Taxon
       authority_subtype: taxon
-      Authorities: []
-      Vocabularies: []
+      Authorities:
+        - name_field: family
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: taxonbasionym
+          authority_type: Taxon
+          authority_subtype: taxon
+        - name_field: relatedterm
+          authority_type: Taxon
+          authority_subtype: taxon
+      Vocabularies:
+        - name_field: relatedtermtype
+          vocabulary_subtype: taxonrelatedtermtype
+        - name_field: taxonmajorgroup
+          vocabulary_subtype: taxonmajorgroup
