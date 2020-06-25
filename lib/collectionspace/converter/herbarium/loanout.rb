@@ -1,58 +1,60 @@
 # frozen_string_literal: true
 
-require_relative '../core/loanin'
+require_relative '../core/loanout'
 
 module CollectionSpace
-  module  Converter
+  module Converter
     module Herbarium
-      class HerbariumLoanIn < CoreLoanIn
-        ::HerbariumLoanIn =  CollectionSpace::Converter::Herbarium::HerbariumLoanIn
-        
+      class HerbariumLoanOut < CoreLoanOut
+        ::HerbariumLoanOut = CollectionSpace::Converter::Herbarium::HerbariumLoanOut
+
         def initialize(attributes, config={})
           super(attributes, config)
-          @redefined  = []
+          @redefined = []
         end
 
         def convert
-          run(wrapper: 'document') do |xml|
-            xm.send(
-              'ns2:loansin_common',
-              'xmlns:ns2' => 'http://collectionspace.org/services/loanin',
+          run(wrapper: 'document')  do |xml|
+            xml.send(
+              'ns2:loansout_common',
+              'xmlns:ns2' => 'http://collectionspace.org/services/loanout',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do 
               xml.parent.namespace = nil
               map_common(xml, attributes)
             end
-
+          
             xml.send(
-              'ns2:loansin_herbarium',
-              'xmlns:ns2' => 'http://collectionspace.org/services/loanin/local/herbarium',
+              'ns2:loansout_herbarium',
+              'xmlns:ns2' => 'http://collectionspace.org/services/loanout/local/herbarium',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do 
-              xml.parent.namespace  = nil
-              map_harbarium(xml, attributes)
-            end  
+              xml.parent.namespace = nil
+              map_herbarium(xml, attributes)
+            end # herb
           end # run
-        end #convert
-
+        end # def convert
+        
         def map_common(xml, attributes)
           super(xml, attributes.merge(redefined_fields))
         end
 
         def map_harbarium(xml,  attributes)
+          # transportMethod
+          # numPackages
+          # acknowledgeDate
+
           pairs = {
             'majorgroup' => 'majorGroup',
             'shipdate' => 'shipDate',
-            'duedate' => 'dueDate',
-            'transferindate' => 'transferInDate',
-            'transferinorg' => 'transferInOrg',
-            'transferinperson' => 'transferInPerson',
+            'transportmethod' => 'transportMethod',
+            'numpackages' => 'numPackages',
+            'acknowledgedate' => 'acknowledgeDate'
           }
 
           pairs_transforms = {
             'majorgroup' => {'vocab' => 'majortaxongroup'},
-            'transferinorg' => {'authority' => ['orgauthorities', 'organization']},
-            'transferinperson' => {'authority' => ['personauthorities', 'person']}
+            'transportmethod' => {'vocab' => 'transportmethod'}
           }
 
           CSXML::Helpers.add_pairs(xml, attributes, pairs, pairs_transforms)
@@ -73,9 +75,7 @@ module CollectionSpace
 
         end
 
-        # TO DO: Add natural history extensions
-      end # class loainin
-    end # mod herb
-  end # mod conv
-end # mod  cspace
-
+      end # class
+    end # Herbarium
+  end # Converter
+end # CollectionSpace
