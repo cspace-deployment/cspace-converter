@@ -80,9 +80,9 @@ registered_profiles:
         identifier: loaninnumber
         title: loaninnumber
       Authorities:
-        # - name_field: taxonomy
-          # authority_type: Taxon
-          # authority_subtype: taxon
+        - name_field: taxonomy
+          authority_type: Taxon
+          authority_subtype: taxon
         - name_field: transferinorg
           authority_type: Organization
           authority_subtype: organization
@@ -101,18 +101,9 @@ registered_profiles:
         identifier: loanoutnumber
         title: loanoutnumber
       Authorities:
-        # - name_field: lendersauthorizer
-        #   authority_type: Person
-        #   authority_subtype: person
-        # - name_field: borrowersauthorizer
-        #   authority_type: Person
-        #   authority_subtype: person
-        # - name_field: borrowerperson
-        #   authority_type: Person
-        #   authority_subtype: person
-        # - name_field: borrowerorganization
-        #   authority_type: Organization
-        #   authority_subtype: organization
+        - name_field: taxonomy
+          authority_type: Taxon
+          authority_subtype: taxon
   # labeltext: # concept
   #   type: Authorities
   #   enabled: true
