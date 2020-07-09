@@ -7,9 +7,13 @@ module CollectionSpace
     module Herbarium
       class HerbariumTaxon < AnthroTaxon
         ::HerbariumTaxon = CollectionSpace::Converter::Herbarium::HerbariumTaxon
+        def redefined_fields
+          @redefined = []
+        end
+
+        
         def initialize(attributes, config={})
           super(attributes, config)
-          @redefined = []
         end #initialize
 
         def convert 

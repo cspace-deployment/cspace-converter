@@ -19,7 +19,7 @@ module  CollectionSpace
         def convert 
           run(wrapper: 'document') do |xml|
             xml.send(
-              'ns2:collectionobjects_common'
+              'ns2:collectionobjects_common',
               'xmlns:ns2' => 'http://collectionspace.org/services/collectionobject',
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do 
@@ -35,7 +35,8 @@ module  CollectionSpace
               xml.parent.namespace = nil
               map_herbarium(xml, attributes)
             end # herb
-          end  # convert
+          end  # run
+        end
 
 
           def map_common(xml, attributes)  
@@ -80,7 +81,7 @@ module  CollectionSpace
             }
 
             herbhybridparent_transforms = {
-              'herbhybridparent' => {'authority' => ['taxonauthorities', 'taxon']}
+              'herbhybridparent' => {'authority' => ['taxonauthorities', 'taxon']},
               'herbhybridparentqualifier' => {'vocab' => 'hybridparentqualifier'}
             }
             CSXML.add_single_level_group_list(xml, attributes, 'herbHybridParent', herbhybridparent_data, herbhybridparent_transforms)
@@ -123,7 +124,7 @@ module  CollectionSpace
               'herbcollectionplace' => {'authority' => ['placeauthorities' ,'place']}
             }
 
-            CSXML.add_single_level_group_list(xml, attributes, 'herbLocality' herblocality_data, herblocality_transforms)
+            CSXML.add_single_level_group_list(xml, attributes, 'herbLocality', herblocality_data, herblocality_transforms)
           end # map_herb
 
           # TO DO: Add extension

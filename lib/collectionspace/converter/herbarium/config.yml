@@ -105,7 +105,6 @@ registered_profiles:
           vocabulary_subtype: transportmethod
         - name_field: objKind
           vocabulary_subtype: objectkind
-  labeltext:
   taxonomy:
     type: Authorities
     enabled: true
