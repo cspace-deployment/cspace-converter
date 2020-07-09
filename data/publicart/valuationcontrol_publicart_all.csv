@@ -1,0 +1,22 @@
+valuationcontrolRefNumber,valueCurrency,valueAmount,valueDate,valueNote,valueRenewalDate,valueType,valueSourceOrganizationLocal,valueSourceOrganizationShared,valueSourcePersonLocal,valueSourcePersonShared,valueSourceRole,insuranceNote,insuranceRenewalDate,insurer,insurancePolicyNumber
+VAL2000.001,Canadian Dollar; Danish Krone,25;35,1/1/2000,Object valuation note text.,2/1/2000,Current Value,,,Arshad Edris,,artist,Insurer Note 1;Insurer Note 2,2002-05-01;2002-06-05,Insurer 1;Insurer 2,Insurer Policy Number 1;Insurer Policy Number 2
+VAL2000.002,Canadian Dollar,10,1/2/2000,Object valuation note text.,2/2/2000,Original Value,,,,Shaamikh Safar,appraiser,Insurer Note 3,2002-06-06,Insurer 3,Insurer Policy Number 3
+VAL2000.003,Danish Krone,20,1/3/2000,Object valuation note text.,2/3/2000,Replacement Value,,,Basheet Pashia,,artist agent,Insurer Note 4,2002-06-07,Insurer 4,Insurer Policy Number 4
+VAL2000.004,Euro,30,1/4/2000,Object valuation note text.,2/4/2000,Current Value,,,,Kaamil Mir,insurance agent,Insurer Note 5,2002-06-08,Insurer 5,Insurer Policy Number 5
+VAL2000.005,Pound Sterling,40,1/5/2000,Object valuation note text.,2/5/2000,Original Value,,,Ghaaliya Basher,,auction house,Insurer Note 6,2002-06-09,Insurer 6,Insurer Policy Number 6
+VAL2000.006,Swedish Krona,50,1/6/2000,Object valuation note text.,2/6/2000,Replacement Value,,,,Hilmiyya Siddiqi,owner,Insurer Note 7,2002-06-10,Insurer 7,Insurer Policy Number 7
+VAL2000.007,Swiss Franc,60,1/7/2000,Object valuation note text.,2/7/2000,Current Value,,,Hilmiyya Shafi,,appraiser,Insurer Note 8,2002-06-11,Insurer 8,Insurer Policy Number 8
+VAL2000.008,US Dollar,70,1/8/2000,Object valuation note text.,2/8/2000,Original Value,,,,Hakeema Yousif,artist agent,Insurer Note 9,2002-06-12,Insurer 9,Insurer Policy Number 9
+VAL2000.009,Canadian Dollar,80,1/9/2000,Object valuation note text.,2/9/2000,Replacement Value,,,Masroora Khan,,artist,Insurer Note 10,2002-06-13,Insurer 10,Insurer Policy Number 10
+VAL2000.010,Danish Krone,90,1/10/2000,Object valuation note text.,2/10/2000,Current Value,,,,Shaafia Baddour,insurance agent,Insurer Note 11,2002-06-14,Insurer 11,Insurer Policy Number 11
+VAL2000.011,Euro,100,1/11/2000,Object valuation note text.,2/11/2000,Original Value,Tridentino Museo di Scienze Naturali,,,,auction house,Insurer Note 12,2002-06-15,Insurer 12,Insurer Policy Number 12
+VAL2000.012,Pound Sterling,110,1/12/2000,Object valuation note text.,2/12/2000,Replacement Value,,San Francisco Museum of Modern Art,,,owner,Insurer Note 13,2002-06-16,Insurer 13,Insurer Policy Number 13
+VAL2000.013,Swedish Krona,120,1/13/2000,Object valuation note text.,2/13/2000,Current Value,Canadian Heritage Information Network,,,,auction house,Insurer Note 14,2002-06-17,Insurer 14,Insurer Policy Number 14
+VAL2000.014,Swiss Franc,130,1/14/2000,Object valuation note text.,2/14/2000,Original Value,,Fitzwilliam Museum,,,,Insurer Note 15,2002-06-18,Insurer 15,Insurer Policy Number 15
+VAL2000.015,US Dollar,140,1/15/2000,Object valuation note text.,2/15/2000,Replacement Value,Watermill Center,,,,artist,Insurer Note 16,2002-06-19,Insurer 16,Insurer Policy Number 16
+VAL2000.016,Canadian Dollar,150,1/16/2000,Object valuation note text.,2/16/2000,Current Value,,Museum of Man,,,,Insurer Note 17,2002-06-20,Insurer 17,Insurer Policy Number 17
+VAL2000.017,Danish Krone,160,1/17/2000,Object valuation note text.,2/17/2000,Original Value,Broad Art Foundation,,,,insurance agent,Insurer Note 18,2002-06-21,Insurer 18,Insurer Policy Number 18
+VAL2000.018,Euro,170,1/18/2000,Object valuation note text.,2/18/2000,Replacement Value,,Balboa Park Online Collaborative,,,auction house,Insurer Note 19,2002-06-22,Insurer 19,Insurer Policy Number 19
+VAL2000.019,Pound Sterling,180,1/19/2000,Object valuation note text.,2/19/2000,Current Value,Berkley Publishing Group,,,,owner,Insurer Note 20,2002-06-23,Insurer 20,Insurer Policy Number 20
+VAL2000.020,Swedish Krona,190,1/20/2000,Object valuation note text.,2/20/2000,Original Value,,Paramount-Famous Lasky Corporation,,,,Insurer Note 21,2002-06-24,Insurer 21,Insurer Policy Number 21
+VAL2000.021,,,,,,,,,,,,,,,

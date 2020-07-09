@@ -20,14 +20,72 @@ registered_procedures:
 registered_profiles:
   acquisition:
     type: Procedures
+    enabled: true
+    identify_by_column: acquisitionreferencenumber
+    required_headers:
+      - acquisitionreferencenumber
     config:
       Acquisition:
+        mapper: PublicArtAcquisition
         identifier: acquisitionreferencenumber
         title: acquisitionreferencenumber
       Authorities:
-        Person:
-        - acquisitionauthorizer
-        - owner
+        - name_field: acquisitionauthorizer
+          authority_type: Person
+          authority_subtype: person
+        - name_field: acquisitionsourcepersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: acquisitionsourcepersonshared
+          authority_type: Person
+          authority_subtype: person_shared
+        - name_field: acquisitionsourceorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: acquisitionsourceorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: commissioningbodyorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: commissioningbodyperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerpersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerpersonshared
+          authority_type: Person
+          authority_subtype: person_shared
+        - name_field: ownerorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: ownerorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: acquisitionfundingsourceorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: acquisitionfundingsourceorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: acquisitionfundingsourcepersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: acquisitionfundingsourcepersonshared
+          authority_type: Person
+          authority_subtype: person_shared
+      Vocabularies:
+        - name_field: acquisitionmethod
+          vocabulary_subtype: acquisitionmethod
+        - name_field: acquisitionfundingcurrency
+          vocabulary_subtype: currency
+        - name_field: commissionbudgettype
+          vocabulary_subtype: budgettype
+        - name_field: commissionactualvaluecurrency
+          vocabulary_subtype: currency
+        - name_field: commissionprojectedvaluecurrency
+          vocabulary_subtype: currency
   cataloging:
     type: Procedures
     enabled: true
@@ -123,22 +181,76 @@ registered_profiles:
           vocabulary_subtype: prodpersonrole
   conditioncheck:
     type: Procedures
+    enabled: true
+    identify_by_column: conditioncheckrefnumber
+    required_headers:
+      - conditioncheckrefnumber
     config:
       ConditionCheck:
-        identifier: conditioncheckreferencenumber
-        title: conditioncheckreferencenumber
+        mapper: PublicArtConditionCheck
+        identifier: conditioncheckrefnumber
+        title: conditioncheckrefnumber
       Authorities:
-        Person:
-        - conditionchecker
+        - name_field: conditioncheckerlocalorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: conditioncheckerlocalperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: conditioncheckersharedorganization
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: conditioncheckersharedperson
+          authority_type: Person
+          authority_subtype: person_shared
   exhibition:
     type: Procedures
+    enabled: true
+    identify_by_column: exhibitionnumber
+    required_headers:
+      - exhibitionnumber
     config:
       Exhibition:
+        mapper: PublicArtExhibition
         identifier: exhibitionnumber
         title: exhibitionnumber
       Authorities:
-        Organization:
-        - organizer
+        - name_field: organizerorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: organizerorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: organizerpersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: organizerpersonshared
+          authority_type: Person
+          authority_subtype: person_shared
+        - name_field: venueorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: venueorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: venueplacelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: venueplaceshared
+          authority_type: Place
+          authority_subtype: place_shared
+        - name_field: venuestoragelocationlocal
+          authority_type: Location
+          authority_subtype: location
+        - name_field: venuestoragelocationoffsite
+          authority_type: Location
+          authority_subtype: offsite_sla
+        - name_field: exhibitionsupportorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: exhibitionsupportperson
+          authority_type: Person
+          authority_subtype: person
   group:
     type: Procedures
     config:
@@ -231,19 +343,6 @@ registered_profiles:
       Authorities:
         Organization:
         - currentowner
-  person:
-    type: Authorities
-    enabled: true
-    identify_by_column: termdisplayname
-    required_headers:
-      - termdisplayname
-    config:
-      mapper: PublicArtPerson
-      name_field: termdisplayname
-      authority_type: Person
-      authority_subtype: person
-      Authorities: []
-      Vocabularies: []
   organization:
     type: Authorities
     enabled: true
@@ -255,14 +354,62 @@ registered_profiles:
       name_field: termdisplayname
       authority_type: Organization
       authority_subtype: organization
-      Authorities: []
+      Authorities:
+        - name_field: currentplace
+          authority_type: Place
+          authority_subtype: place
+        - name_field: foundingplacelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: foundingplaceshared
+          authority_type: Place
+          authority_subtype: place_shared
+      Vocabularies:
+        - name_field: placementtype
+          vocabulary_subtype: placementtypes
+  person:
+    type: Authorities
+    enabled: true
+    identify_by_column: termdisplayname
+    required_headers:
+      - termdisplayname
+    config:
+      mapper: PublicArtPerson
+      name_field: termdisplayname
+      authority_type: Person
+      authority_subtype: person
+      Authorities:
+        - name_field: organization
+          authority_type: Organization
+          authority_subtype: organization
       Vocabularies: []
   valuationcontrol:
     type: Procedures
+    enabled: true
+    identify_by_column: valuationcontrolrefnumber
+    required_headers:
+      - valuationcontrolrefnumber
     config:
       ValuationControl:
-        identifier: valuationcontrolreferencenumber
-        title: valuationcontrolreferencenumber
+        mapper: PublicArtValuationControl
+        identifier: valuationcontrolrefnumber
+        title: valuationcontrolrefnumber
       Authorities:
-        Person:
-        - source
+        - name_field: valuesourcepersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: valuesourcepersonshared
+          authority_type: Person
+          authority_subtype: person_shared
+        - name_field: valuesourceorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: valuesourceorganizationshared
+          authority_type: Organization
+          authority_subtype: organization_shared
+        - name_field: insurer
+          authority_type: Person
+          authority_subtype: person
+      Vocabularies:
+        - name_field: valuesourcerole
+          vocabulary_subtype: valuationsourcerole

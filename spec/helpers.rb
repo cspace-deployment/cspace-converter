@@ -58,6 +58,10 @@ module Helpers
       if element.text.start_with?('urn:')
         parsed = CSURN.parse(element.text)
         vals << [parsed[:type], parsed[:subtype], parsed[:label]].join(' - ')
+      elsif element.blank?
+        next
+      elsif element.text.empty?
+        next
       else
         vals << 'Not a URN'
       end

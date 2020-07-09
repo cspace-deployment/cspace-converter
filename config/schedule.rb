@@ -4,6 +4,6 @@ set :environment, ENV['RAILS_ENV'] ||= 'development'
 set :output, File.join('log', 'cron.log')
 ENV.each { |k, v| env(k, v) }
 
-every ENV.fetch('CSPACE_CONVERTER_CACHE_REFRESH', '0 0 * * *') do
-  rake 'cache:refresh'
+every '0 0 * * *' do
+  runner 'Rails.configuration.refcache.clean'
 end

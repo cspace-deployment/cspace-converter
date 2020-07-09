@@ -22,6 +22,8 @@ RSpec.describe CollectionSpace::Converter::OHC::OHCCollectionObject do
       let(:doc) { get_doc(ohccollectionobject) }
       let(:record) { get_fixture('ohc_collectionobject_row2.xml') }
 
+      
+
       it "Maps OHC-specific fields correctly" do
         xpaths = [
           "/document/#{ohc}/descriptionLevel",
@@ -64,25 +66,13 @@ RSpec.describe CollectionSpace::Converter::OHC::OHCCollectionObject do
     end #  context 'sample data row 2'
   end # describe #map
 
-  context 'sample data row 3 - objectNumber only' do
-    let(:attributes) { get_attributes_by_row('ohc', 'collectionobject_ohc_specific.csv', 3) }
-    let(:ohccollectionobject) { OHCCollectionObject.new(attributes) }
-    let(:doc) { get_doc(ohccollectionobject) }
-    let(:record) { get_fixture('ohc_collectionobject_row3.xml') }
-    let(:xpaths) {[
-      "/document/*/objectNumber"
-    ]}
-
-    it "Maps attributes correctly" do
-      test_converter(doc, record, xpaths)
-    end
-  end
 
   context 'all OHC skeletal fields (integration)' do
     let(:attributes) { get_attributes('ohc', 'collectionobject_remains.csv') }
     let(:ohccollectionobject) { OHCCollectionObject.new(attributes) }
     let(:doc) { get_doc(ohccollectionobject) }
     let(:record) { get_fixture('ohc_collectionobject_full.xml') }
+
     let(:xpaths) {[
       { xpath: "/document/#{common}/objectNameList/objectNameGroup[1]/objectName", transform: ->(text) { CSURN.parse(text)[:label] } },
       { xpath: "/document/#{common}/objectNameList/objectNameGroup[2]/objectName", transform: ->(text) { CSURN.parse(text)[:label] } },

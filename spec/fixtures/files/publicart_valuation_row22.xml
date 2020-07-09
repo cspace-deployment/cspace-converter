@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="valuationcontrols">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-09T19:48:13.022Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:valuationcontrols:id(a07b73c3-1642-47d4-ac67)</refName>
+    <uri>/valuationcontrols/a07b73c3-1642-47d4-ac67</uri>
+    <updatedAt>2020-05-09T19:48:13.022Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:valuationcontrols_common xmlns:ns2="http://collectionspace.org/services/valuationcontrol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <valuationcontrolRefNumber>VAL2000.021</valuationcontrolRefNumber>
+    <valueAmountsList/>
+  </ns2:valuationcontrols_common>
+  <ns2:valuationcontrols_publicart xmlns:ns2="http://collectionspace.org/services/valuationcontrol/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <insuranceGroupList/>
+  </ns2:valuationcontrols_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

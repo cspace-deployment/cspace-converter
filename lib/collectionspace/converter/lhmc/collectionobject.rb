@@ -18,15 +18,6 @@ module CollectionSpace
 
           # Listing a field here, but not redefining it will remove it from the new module.
 
-          # @redefined is an Array of fieldname values. We add fields to it.
-
-          # To use call the redefined_fields method definition from Default::Record, which
-          #   returns a Hash where each key is an element of @redefined and all values are nil
-
-          # Later, we call the CoreCollectionObject and CulturalCare's .map_* methods.
-          #  Instead of sending the actual attributes from the CSV in those calls, we merge this
-          #  redefined_fields hash in with the real attributes hash, which replaces any existing data
-          #  in the listed fields with nil.
           @redefined = %w[
             numbertype
             numbervalue
@@ -44,11 +35,6 @@ module CollectionSpace
         #  different namespaces.
 
         # All the detailed logic for how individual fields are to be handled is defined below convert.
-
-        # It seems sub-optimal to have to include the namespace and namespace declaration data
-        #  explicitly every time we call in the logic from another module. However, this is necessary
-        #  for now because even though assocplace is overridden by lhmc, it still needs to
-        #  appear as a child of the common namespace.
 
         # NOTE:
         # The namespace for the core module is "common" because the "core" namespace is used for fields

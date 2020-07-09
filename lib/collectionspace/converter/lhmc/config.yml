@@ -7,11 +7,60 @@ registered_authorities:
   - personauthorities
   - placeauthorities
 registered_procedures:
+  - Acquisition
   - CollectionObject
 registered_profiles:
+  acquisition:
+    type: Procedures
+    enabled: true
+    identify_by_column: acquisitionreferencenumber
+    required_headers:
+      - acquisitionreferencenumber
+    config:
+      Acquisition:
+        mapper: LhmcAcquisition
+        identifier: acquisitionreferencenumber
+        title: acquisitionreferencenumber
+      Authorities:
+        - name_field: acquisitionauthorizer
+          authority_type: Person
+          authority_subtype: person
+        - name_field: acquisitionsourceperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: acquisitionsourceorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: ownerperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: acquisitionfundingsourceorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: acquisitionfundingsourceperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: approvalindividual
+          authority_type: Person
+          authority_subtype: person
+      Vocabularies:
+        - name_field: grouppurchasepricecurrency
+          vocabulary_subtype: currency
+        - name_field: objectpurchasepricecurrency
+          vocabulary_subtype: currency
+        - name_field: acquisitionfundingcurrency
+          vocabulary_subtype: currency
+        - name_field: approvalstatus
+          vocabulary_subtype: deaccessionapprovalstatus
+        - name_field: approvalgroup
+          vocabulary_subtype: deaccessionapprovalgroup
   cataloging:
     type: Procedures
     enabled: true
+    identify_by_column: objectnumber
     required_headers:
       - objectnumber
     config:
@@ -19,7 +68,86 @@ registered_profiles:
         mapper: LhmcCollectionObject
         identifier: objectnumber
         title: objectnumber
-      Authorities: 
+      Authorities:
+        - name_field: contentpersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: contentpersonulan
+          authority_type: Person
+          authority_subtype: ulan_pa
+        - name_field: contentorganizationlocal
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: contentorganizationulan
+          authority_type: Organization
+          authority_subtype: ulan_oa
+        - name_field: inscriptioncontentinscriberperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: objectproductionperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: objectproductionorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: fieldcollectionplacelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: fieldcollectionplacetgn
+          authority_type: Place
+          authority_subtype: tgn_place
+        - name_field: ownerperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: ownerorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: contentconceptassociated
+          authority_type: Concept
+          authority_subtype: concept
+        - name_field: contentconceptmaterial
+          authority_type: Concept
+          authority_subtype: material_ca
+        - name_field: assoceventorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: assoceventperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: fieldcollectionsource
+          authority_type: Person
+          authority_subtype: person
+        - name_field: fieldcollectorperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: fieldcollectororganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: inscriptioncontentinscriberorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: inscriptiondescriptioninscriberperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: inscriptiondescriptioninscriberorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: assocconcept
+          authority_type: Concept
+          authority_subtype: concept
+        - name_field: assocorganization
+          authority_type: Organization
+          authority_subtype: organization
+        - name_field: assocperson
+          authority_type: Person
+          authority_subtype: person
+        - name_field: referencelocal
+          authority_type: Citation
+          authority_subtype: citation
+        - name_field: referenceworldcat
+          authority_type: Citation
+          authority_subtype: worldcat
+        # LHMC-specific
         - name_field: assocplacelocal
           authority_type: Place
           authority_subtype: place
@@ -45,8 +173,132 @@ registered_profiles:
           authority_type: Place
           authority_subtype: tgn_place
       Vocabularies:
+        - name_field: agequalifier
+          vocabulary_subtype: agequalifier
+        - name_field: ownershipexchangepricecurrency
+          vocabulary_subtype: currency
+        - name_field: inventorystatus
+          vocabulary_subtype: inventorystatus
+        - name_field: publishto
+          vocabulary_subtype: publishto
+        - name_field: contentlanguage
+          vocabulary_subtype: languages
+        - name_field: fieldcollectionmethod
+          vocabulary_subtype: collectionmethod
+        - name_field: inscriptioncontentlanguage
+          vocabulary_subtype: languages
+        - name_field: objectnamelanguage
+          vocabulary_subtype: languages
+        - name_field: titlelanguage
+          vocabulary_subtype: languages
+        - name_field: titletranslationlanguage
+          vocabulary_subtype: languages
+        #LHMC-specific
         - name_field: numbertype
           vocabulary_subtype: numbertype
+  organization:
+    type: Authorities
+    enabled: true
+    identify_by_column: termdisplayname
+    required_headers:
+      - termdisplayname
+    config:
+      mapper: CoreOrganization
+      name_field: termdisplayname
+      authority_type: Organization
+      authority_subtype: organization
+      Authorities:
+        - name_field: termsource
+          authority_type: Citation
+          authority_subtype: citation
+        - name_field: contactname
+          authority_type: Person
+          authority_subtype: person
+      Vocabularies:
+        - name_field: organizationrecordtype
+          vocabulary_subtype: organizationtype
+        - name_field: termlanguage
+          vocabulary_subtype: languages
+        - name_field: termflag
+          vocabulary_subtype: orgtermflag
+        - name_field: contactrole
+          vocabulary_subtype: contactrole
+        - name_field: contactstatus
+          vocabulary_subtype: contactstatus
+  person:
+    type: Authorities
+    enabled: true
+    identify_by_column: termdisplayname
+    required_headers:
+      - termdisplayname
+    config:
+      mapper: LhmcPerson
+      name_field: termdisplayname
+      authority_type: Person
+      authority_subtype: person
+      Authorities:
+        # core
+        - name_field: termsourcelocal
+          authority_type: Citation
+          authority_subtype: citation
+        - name_field: termsourceworldcat
+          authority_type: Citation
+          authority_subtype: worldcat
+        # LHMC specific
+        - name_field: birthplacelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: birthplacetgn
+          authority_type: Place
+          authority_subtype: tgn_place
+        - name_field: deathplacelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: deathplacetgn
+          authority_type: Place
+          authority_subtype: tgn_place
+        - name_field: relatedpersonlocal
+          authority_type: Person
+          authority_subtype: person
+        - name_field: relatedpersonulan
+          authority_type: Person
+          authority_subtype: ulan_pa
+        - name_field: placeorresidencelocal
+          authority_type: Place
+          authority_subtype: place
+        - name_field: placeorresidencelocaltgn
+          authority_type: Place
+          authority_subtype: tgn_place
+        - name_field: publicationspersonlocal
+          authority_type: Citation
+          authority_subtype: citation
+        - name_field: publicationspersonworldcat
+          authority_type: Citation
+          authority_subtype: worldcat
+      Vocabularies:
+        - name_field: termsource
+          vocabulary_subtype: citation
+        - name_field: termlanguage
+          vocabulary_subtype: languages
+        - name_field: termtype
+          vocabulary_subtype: persontermtype
+        - name_field: termflag
+          vocabulary_subtype: persontermflag
+        - name_field: relationshiptype
+          vocabulary_subtype: personrelationship
+  place:
+    type: Authorities
+    enabled: true
+    identify_by_column: termdisplayname
+    required_headers:
+      - termdisplayname
+    config:
+      mapper: CorePlace
+      name_field: termdisplayname
+      authority_type: Place
+      authority_subtype: place
+      Authorities: []
+      Vocabularies: []
   hierarchies:
     type: Hierarchies
     enabled: true
@@ -55,3 +307,12 @@ registered_profiles:
       - narrower
       - broader
     config: {}
+  vocabularies:
+    type: Vocabularies
+    enabled: true
+    identify_by_column: displayname
+    required_headers:
+      - displayname
+      - vocabulary
+    config:
+      name_field: displayname

@@ -5,11 +5,11 @@ module CollectionSpace
         ::CoreValuationControl = CollectionSpace::Converter::Core::CoreValuationControl
         def convert
           run do |xml|
-            CoreValuationControl.map(xml, attributes)
+            CoreValuationControl.map_common(xml, attributes)
           end
         end
 
-        def self.map(xml, attributes)
+        def self.map_common(xml, attributes)
           pairs = {
             'valuationcontrolrefnumber' => 'valuationcontrolRefNumber',
             'valuedate' => 'valueDate',

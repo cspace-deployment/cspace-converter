@@ -5,11 +5,11 @@ module CollectionSpace
         ::CoreConditionCheck = CollectionSpace::Converter::Core::CoreConditionCheck
         def convert
           run do |xml|
-            CoreConditionCheck.map(xml, attributes)
+            CoreConditionCheck.map_common(xml, attributes)
           end
         end
 
-        def self.map(xml, attributes)
+        def self.map_common(xml, attributes)
           pairs = {
             'conditioncheckrefnumber' => 'conditionCheckRefNumber',
             'conditioncheckassessmentdate' => 'conditionCheckAssessmentDate',

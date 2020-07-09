@@ -4,7 +4,6 @@ module CollectionSpace
       def self.everything!
         [
           Batch,
-          CacheObject,
           CollectionSpaceObject,
           DataObject,
           Delayed::Job,

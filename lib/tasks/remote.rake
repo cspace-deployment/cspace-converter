@@ -42,13 +42,13 @@ namespace :remote do
     # bundle exec rake remote:client:all[acquisitions]
     task :all, [:path] => :environment do |t, args|
       path = args[:path]
-      $collectionspace_client.all(path).each { |item| puts item }
+      Rails.configuration.client.all(path).each { |item| puts item }
     end
 
     # bundle exec rake remote:client:get[acquisitions]
     task :get, [:path] => :environment do |t, args|
       path = args[:path]
-      puts $collectionspace_client.get(path).xml
+      puts Rails.configuration.client.get(path).xml
     end
   end
 

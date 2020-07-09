@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="acquisitions">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-16T18:49:41.801Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:acquisitions:id(4b128ad9-67aa-4c35-ba1f)</refName>
+    <uri>/acquisitions/4b128ad9-67aa-4c35-ba1f</uri>
+    <updatedAt>2020-05-16T18:49:41.801Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:acquisitions_common xmlns:ns2="http://collectionspace.org/services/acquisition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <acquisitionNote>This record contains sample data provided by CollectionSpace community members. While the record may reference real artworks, people, and organizations, the information should not be read as an accurate description of any artwork, person, or organization, or of relationships among them.</acquisitionNote>
+    <acquisitionReferenceNumber>20CS.001b</acquisitionReferenceNumber>
+    <owners>
+      <owner>urn:cspace:publicart.collectionspace.org:personauthorities:name(person_shared):item:name(JohnMellon1754567186)'John Mellon'</owner>
+      <owner>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization_shared):item:name(PrincetonUniversityArtMuseum373000491)'Princeton University Art Museum'</owner>
+    </owners>
+    <acquisitionDateGroupList>
+      <acquisitionDateGroup>
+        <scalarValuesComputed>true</scalarValuesComputed>
+        <dateEarliestSingleCertainty/>
+        <dateEarliestSingleQualifierUnit/>
+        <dateDisplayDate>2015/11/15</dateDisplayDate>
+        <dateLatestScalarValue>2015-11-16T00:00:00.000Z</dateLatestScalarValue>
+        <dateEarliestSingleQualifierValue/>
+        <datePeriod/>
+        <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+        <dateEarliestSingleDay/>
+        <dateEarliestSingleQualifier/>
+        <dateEarliestSingleYear/>
+        <dateLatestCertainty/>
+        <dateAssociation/>
+        <dateLatestDay/>
+        <dateEarliestSingleMonth/>
+        <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+        <dateLatestYear/>
+        <dateLatestQualifierUnit/>
+        <dateNote/>
+        <dateLatestQualifierValue/>
+        <dateLatestQualifier/>
+        <dateEarliestScalarValue>2015-11-15T00:00:00.000Z</dateEarliestScalarValue>
+        <dateLatestMonth/>
+      </acquisitionDateGroup>
+    </acquisitionDateGroupList>
+    <acquisitionAuthorizer>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(ClementineEgge2993679866)'Clementine Egge'</acquisitionAuthorizer>
+    <creditLine>Gift of John Mellon</creditLine>
+    <acquisitionReason>eu volutpat odio facilisis mauris sit amet massa vitae tortor</acquisitionReason>
+    <acquisitionSources>
+      <acquisitionSource>urn:cspace:publicart.collectionspace.org:personauthorities:name(person_shared):item:name(JohnMellon1754567186)'John Mellon'</acquisitionSource>
+      <acquisitionSource>urn:cspace:publicart.collectionspace.org:personauthorities:name(person_shared):item:name(JohnMaycroft1947809957)'John Maycroft'</acquisitionSource>
+    </acquisitionSources>
+    <accessionDateGroup>
+      <scalarValuesComputed>true</scalarValuesComputed>
+      <dateEarliestSingleCertainty/>
+      <dateEarliestSingleQualifierUnit/>
+      <dateDisplayDate>2015/01/01</dateDisplayDate>
+      <dateLatestScalarValue>2015-01-02T00:00:00.000Z</dateLatestScalarValue>
+      <dateEarliestSingleQualifierValue/>
+      <datePeriod/>
+      <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+      <dateEarliestSingleDay>1</dateEarliestSingleDay>
+      <dateEarliestSingleQualifier/>
+      <dateEarliestSingleYear>2015</dateEarliestSingleYear>
+      <dateLatestCertainty/>
+      <dateAssociation/>
+      <dateLatestDay>2</dateLatestDay>
+      <dateEarliestSingleMonth>1</dateEarliestSingleMonth>
+      <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+      <dateLatestYear>2015</dateLatestYear>
+      <dateLatestQualifierUnit/>
+      <dateNote/>
+      <dateLatestQualifierValue/>
+      <dateLatestQualifier/>
+      <dateEarliestScalarValue>2015-01-01T00:00:00.000Z</dateEarliestScalarValue>
+      <dateLatestMonth>1</dateLatestMonth>
+    </accessionDateGroup>
+    <acquisitionFundingList>
+      <acquisitionFunding>
+        <acquisitionFundingSourceProvisos>aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod</acquisitionFundingSourceProvisos>
+        <acquisitionFundingCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(CAD)'Canadian Dollar'</acquisitionFundingCurrency>
+        <acquisitionFundingValue>1321</acquisitionFundingValue>
+        <acquisitionFundingSource>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization_shared):item:name(InstituteofMuseumandLibraryServices217009362)'Institute of Museum and Library Services'</acquisitionFundingSource>
+      </acquisitionFunding>
+      <acquisitionFunding>
+        <acquisitionFundingSourceProvisos>aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod</acquisitionFundingSourceProvisos>
+        <acquisitionFundingCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(EUR)'Euro'</acquisitionFundingCurrency>
+        <acquisitionFundingValue>52879</acquisitionFundingValue>
+        <acquisitionFundingSource>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization_shared):item:name(MiamiDadeCountyDepartmentofCulturalAffairs4002162764)'Miami-Dade County Department of Cultural Affairs'</acquisitionFundingSource>
+      </acquisitionFunding>
+    </acquisitionFundingList>
+    <fieldCollectionEventNames/>
+    <acquisitionMethod>urn:cspace:publicart.collectionspace.org:vocabularies:name(acquisitionmethod):item:name(exchange)'exchange'</acquisitionMethod>
+    <acquisitionAuthorizerDate>2015-12-15T00:00:00.000Z</acquisitionAuthorizerDate>
+    <approvalGroupList/>
+  </ns2:acquisitions_common>
+  <ns2:acquisitions_commission xmlns:ns2="http://collectionspace.org/services/acquisition/domain/commission" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <commissionBudgetGroupList>
+      <commissionBudgetGroup>
+        <commissionProjectedValueCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(GBP)'Pound Sterling'</commissionProjectedValueCurrency>
+        <commissionActualValueAmount>1500</commissionActualValueAmount>
+        <commissionBudgetTypeNote>Budget type note 3</commissionBudgetTypeNote>
+        <commissionProjectedValueAmount>1500</commissionProjectedValueAmount>
+        <commissionActualValueCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(GBP)'Pound Sterling'</commissionActualValueCurrency>
+        <commissionBudgetType>urn:cspace:publicart.collectionspace.org:vocabularies:name(budgettype):item:name(artist_fee)'artist fee'</commissionBudgetType>
+      </commissionBudgetGroup>
+    </commissionBudgetGroupList>
+    <commissioningBodyList>
+      <commissioningBody>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(Person31664435451)'Person 3'</commissioningBody>
+      <commissioningBody>Organization 3</commissioningBody>
+    </commissioningBodyList>
+    <commissionDate>
+      <scalarValuesComputed>true</scalarValuesComputed>
+      <dateEarliestSingleCertainty/>
+      <dateEarliestSingleQualifierUnit/>
+      <dateDisplayDate>2015/12/15</dateDisplayDate>
+      <dateLatestScalarValue>2015-12-16T00:00:00.000Z</dateLatestScalarValue>
+      <dateEarliestSingleQualifierValue/>
+      <datePeriod/>
+      <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+      <dateEarliestSingleDay>15</dateEarliestSingleDay>
+      <dateEarliestSingleQualifier/>
+      <dateEarliestSingleYear>2015</dateEarliestSingleYear>
+      <dateLatestCertainty/>
+      <dateAssociation/>
+      <dateLatestDay>16</dateLatestDay>
+      <dateEarliestSingleMonth>12</dateEarliestSingleMonth>
+      <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+      <dateLatestYear>2015</dateLatestYear>
+      <dateLatestQualifierUnit/>
+      <dateNote/>
+      <dateLatestQualifierValue/>
+      <dateLatestQualifier/>
+      <dateEarliestScalarValue>2015-12-15T00:00:00.000Z</dateEarliestScalarValue>
+      <dateLatestMonth>12</dateLatestMonth>
+    </commissionDate>
+  </ns2:acquisitions_commission>
+  <ns2:acquisitions_publicart xmlns:ns2="http://collectionspace.org/services/acquisition/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <acquisitionDates>
+      <acquisitionDate>2015-11-15T00:00:00.000Z</acquisitionDate>
+    </acquisitionDates>
+    <accessionDate>2015-01-01T00:00:00.000Z</accessionDate>
+  </ns2:acquisitions_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

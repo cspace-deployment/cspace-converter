@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="exhibitions">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-24T21:27:44.855Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:exhibitions:id(bc743572-7d73-4ad4-b8be)</refName>
+    <uri>/exhibitions/bc743572-7d73-4ad4-b8be</uri>
+    <updatedAt>2020-05-24T21:27:44.855Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:exhibitions_common xmlns:ns2="http://collectionspace.org/services/exhibition" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <exhibitionObjectGroupList/>
+    <venueGroupList>
+      <venueGroup>
+        <venue>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(UniversityofCaliforniaBerkeley885438210)'University of California, Berkeley'</venue>
+        <venueOpeningDate>2000-01-01T00:00:00.000Z</venueOpeningDate>
+        <venueUrl>https://collectionspace.org</venueUrl>
+        <venueAttendance>123</venueAttendance>
+        <venueClosingDate>2000-02-01T00:00:00.000Z</venueClosingDate>
+      </venueGroup>
+      <venueGroup>
+        <venue>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(OaklandMuseumofCalifornia1589178195750)'Oakland Museum of California'</venue>
+        <venueOpeningDate>2000-01-02T00:00:00.000Z</venueOpeningDate>
+        <venueUrl>https://lyrasis.org</venueUrl>
+        <venueAttendance>456</venueAttendance>
+        <venueClosingDate>2000-02-02T00:00:00.000Z</venueClosingDate>
+      </venueGroup>
+    </venueGroupList>
+    <generalNote>General note text.</generalNote>
+    <exhibitionReferenceGroupList/>
+    <galleryRotationGroupList>
+      <galleryRotationGroup>
+        <galleryRotationEndDateGroup>
+          <scalarValuesComputed>true</scalarValuesComputed>
+          <dateEarliestSingleCertainty/>
+          <dateEarliestSingleQualifierUnit/>
+          <dateDisplayDate>4/1/2000</dateDisplayDate>
+          <dateLatestScalarValue>2000-04-02T00:00:00.000Z</dateLatestScalarValue>
+          <dateEarliestSingleQualifierValue/>
+          <datePeriod/>
+          <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+          <dateEarliestSingleDay>1</dateEarliestSingleDay>
+          <dateEarliestSingleQualifier/>
+          <dateEarliestSingleYear>2000</dateEarliestSingleYear>
+          <dateLatestCertainty/>
+          <dateAssociation/>
+          <dateLatestDay>2</dateLatestDay>
+          <dateEarliestSingleMonth>4</dateEarliestSingleMonth>
+          <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+          <dateLatestYear>2000</dateLatestYear>
+          <dateLatestQualifierUnit/>
+          <dateNote/>
+          <dateLatestQualifierValue/>
+          <dateLatestQualifier/>
+          <dateEarliestScalarValue>2000-04-01T00:00:00.000Z</dateEarliestScalarValue>
+          <dateLatestMonth>4</dateLatestMonth>
+        </galleryRotationEndDateGroup>
+        <galleryRotationNote>Gallery rotation note text 1.</galleryRotationNote>
+        <galleryRotationName>Gallery rotation name text 1.</galleryRotationName>
+        <galleryRotationStartDateGroup>
+          <scalarValuesComputed>true</scalarValuesComputed>
+          <dateEarliestSingleCertainty/>
+          <dateEarliestSingleQualifierUnit/>
+          <dateDisplayDate>3/1/2000</dateDisplayDate>
+          <dateLatestScalarValue>2000-03-02T00:00:00.000Z</dateLatestScalarValue>
+          <dateEarliestSingleQualifierValue/>
+          <datePeriod/>
+          <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+          <dateEarliestSingleDay>1</dateEarliestSingleDay>
+          <dateEarliestSingleQualifier/>
+          <dateEarliestSingleYear>2000</dateEarliestSingleYear>
+          <dateLatestCertainty/>
+          <dateAssociation/>
+          <dateLatestDay>2</dateLatestDay>
+          <dateEarliestSingleMonth>3</dateEarliestSingleMonth>
+          <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+          <dateLatestYear>2000</dateLatestYear>
+          <dateLatestQualifierUnit/>
+          <dateNote/>
+          <dateLatestQualifierValue/>
+          <dateLatestQualifier/>
+          <dateEarliestScalarValue>2000-03-01T00:00:00.000Z</dateEarliestScalarValue>
+          <dateLatestMonth>3</dateLatestMonth>
+        </galleryRotationStartDateGroup>
+      </galleryRotationGroup>
+      <galleryRotationGroup>
+        <galleryRotationEndDateGroup>
+          <scalarValuesComputed>true</scalarValuesComputed>
+          <dateEarliestSingleCertainty/>
+          <dateEarliestSingleQualifierUnit/>
+          <dateDisplayDate>4/2/2000</dateDisplayDate>
+          <dateLatestScalarValue>2000-04-03T00:00:00.000Z</dateLatestScalarValue>
+          <dateEarliestSingleQualifierValue/>
+          <datePeriod/>
+          <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+          <dateEarliestSingleDay>2</dateEarliestSingleDay>
+          <dateEarliestSingleQualifier/>
+          <dateEarliestSingleYear>2000</dateEarliestSingleYear>
+          <dateLatestCertainty/>
+          <dateAssociation/>
+          <dateLatestDay>3</dateLatestDay>
+          <dateEarliestSingleMonth>4</dateEarliestSingleMonth>
+          <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+          <dateLatestYear>2000</dateLatestYear>
+          <dateLatestQualifierUnit/>
+          <dateNote/>
+          <dateLatestQualifierValue/>
+          <dateLatestQualifier/>
+          <dateEarliestScalarValue>2000-04-02T00:00:00.000Z</dateEarliestScalarValue>
+          <dateLatestMonth>4</dateLatestMonth>
+        </galleryRotationEndDateGroup>
+        <galleryRotationNote>Gallery rotation note text 2.</galleryRotationNote>
+        <galleryRotationName>Gallery rotation name text 2.</galleryRotationName>
+        <galleryRotationStartDateGroup>
+          <scalarValuesComputed>true</scalarValuesComputed>
+          <dateEarliestSingleCertainty/>
+          <dateEarliestSingleQualifierUnit/>
+          <dateDisplayDate>3/2/2000</dateDisplayDate>
+          <dateLatestScalarValue>2000-03-03T00:00:00.000Z</dateLatestScalarValue>
+          <dateEarliestSingleQualifierValue/>
+          <datePeriod/>
+          <dateLatestEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateLatestEra>
+          <dateEarliestSingleDay>2</dateEarliestSingleDay>
+          <dateEarliestSingleQualifier/>
+          <dateEarliestSingleYear>2000</dateEarliestSingleYear>
+          <dateLatestCertainty/>
+          <dateAssociation/>
+          <dateLatestDay>3</dateLatestDay>
+          <dateEarliestSingleMonth>3</dateEarliestSingleMonth>
+          <dateEarliestSingleEra>urn:cspace:publicart.collectionspace.org:vocabularies:name(dateera):item:name(ce)'CE'</dateEarliestSingleEra>
+          <dateLatestYear>2000</dateLatestYear>
+          <dateLatestQualifierUnit/>
+          <dateNote/>
+          <dateLatestQualifierValue/>
+          <dateLatestQualifier/>
+          <dateEarliestScalarValue>2000-03-02T00:00:00.000Z</dateEarliestScalarValue>
+          <dateLatestMonth>3</dateLatestMonth>
+        </galleryRotationStartDateGroup>
+      </galleryRotationGroup>
+    </galleryRotationGroupList>
+    <exhibitionNumber>EXH2000.001</exhibitionNumber>
+    <planningNote>Planning note text.</planningNote>
+    <title>Exhibition title text.</title>
+    <type>urn:cspace:publicart.collectionspace.org:vocabularies:name(exhibitiontype):item:name(permanent)'Permanent'</type>
+    <sponsors/>
+    <exhibitionStatusGroupList/>
+    <organizers>
+      <organizer>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(TridentinoMuseodiScienzeNaturali755829710)'Tridentino Museo di Scienze Naturali'</organizer>
+      <organizer>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(WatermillCenter529643859)'Watermill Center'</organizer>
+      <organizer>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(JosephMoore1589178535168)'Joseph Moore'</organizer>
+    </organizers>
+    <exhibitionSectionGroupList/>
+    <boilerplateText>Boilerplate text text.</boilerplateText>
+    <workingGroupList/>
+    <curatorialNote>Curatorial note text.</curatorialNote>
+  </ns2:exhibitions_common>
+  <ns2:exhibitions_publicart xmlns:ns2="http://collectionspace.org/services/exhibition/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <exhibitionSupportGroupList>
+      <exhibitionSupportGroup>
+        <exhibitionSupportNote>Support Note Text 1</exhibitionSupportNote>
+        <exhibitionSupport>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(Organization11589178776943)'Organization 1'</exhibitionSupport>
+      </exhibitionSupportGroup>
+      <exhibitionSupportGroup>
+        <exhibitionSupportNote>Support Note Text 2</exhibitionSupportNote>
+        <exhibitionSupport>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(Person11589178755522)'Person 1'</exhibitionSupport>
+      </exhibitionSupportGroup>
+    </exhibitionSupportGroupList>
+  </ns2:exhibitions_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

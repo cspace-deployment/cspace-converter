@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="valuationcontrols">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-18T18:01:23.490Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:valuationcontrols:id(e03c6fc0-2a1e-41bb-8cf4)</refName>
+    <uri>/valuationcontrols/e03c6fc0-2a1e-41bb-8cf4</uri>
+    <updatedAt>2020-05-18T18:01:23.490Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:valuationcontrols_common xmlns:ns2="http://collectionspace.org/services/valuationcontrol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <valuationcontrolRefNumber>VAL2000.001</valuationcontrolRefNumber>
+    <valueAmountsList>
+      <valueAmounts>
+        <valueAmount>25</valueAmount>
+        <valueCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(CAD)'Canadian Dollar'</valueCurrency>
+      </valueAmounts>
+      <valueAmounts>
+        <valueAmount>35</valueAmount>
+        <valueCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(DKK)'Danish Krone'</valueCurrency>
+      </valueAmounts>
+    </valueAmountsList>
+    <valueRenewalDate>2000-02-01T00:00:00.000Z</valueRenewalDate>
+    <valueType>Current Value</valueType>
+    <valueNote>Object valuation note text.</valueNote>
+    <valueDate>2000-01-01T00:00:00.000Z</valueDate>
+    <valueSource>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(ArshadEdris1589052281489)'Arshad Edris'</valueSource>
+  </ns2:valuationcontrols_common>
+  <ns2:valuationcontrols_publicart xmlns:ns2="http://collectionspace.org/services/valuationcontrol/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <insuranceGroupList>
+      <insuranceGroup>
+        <insuranceNote>Insurer Note 1</insuranceNote>
+        <insuranceRenewalDate>2002-05-01T00:00:00.000Z</insuranceRenewalDate>
+        <insurer>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(Insurer11589052326900)'Insurer 1'</insurer>
+        <insurancePolicyNumber>Insurer Policy Number 1</insurancePolicyNumber>
+      </insuranceGroup>
+      <insuranceGroup>
+        <insuranceNote>Insurer Note 2</insuranceNote>
+        <insuranceRenewalDate>2002-06-05T00:00:00.000Z</insuranceRenewalDate>
+        <insurer>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(Insurer22808995122)'Insurer 2'</insurer>
+        <insurancePolicyNumber>Insurer Policy Number 2</insurancePolicyNumber>
+      </insuranceGroup>
+    </insuranceGroupList>
+    <valueSourceRole>urn:cspace:publicart.collectionspace.org:vocabularies:name(valuationsourcerole):item:name(artist)'artist'</valueSourceRole>
+  </ns2:valuationcontrols_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

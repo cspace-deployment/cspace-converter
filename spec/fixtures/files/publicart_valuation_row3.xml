@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="valuationcontrols">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-18T17:51:18.896Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:valuationcontrols:id(a8e0f481-7508-4df7-887d)</refName>
+    <uri>/valuationcontrols/a8e0f481-7508-4df7-887d</uri>
+    <updatedAt>2020-05-18T17:51:18.896Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:valuationcontrols_common xmlns:ns2="http://collectionspace.org/services/valuationcontrol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <valuationcontrolRefNumber>VAL2000.002</valuationcontrolRefNumber>
+    <valueAmountsList>
+      <valueAmounts>
+        <valueAmount>10</valueAmount>
+        <valueCurrency>urn:cspace:publicart.collectionspace.org:vocabularies:name(currency):item:name(CAD)'Canadian Dollar'</valueCurrency>
+      </valueAmounts>
+    </valueAmountsList>
+    <valueRenewalDate>2000-02-02T00:00:00.000Z</valueRenewalDate>
+    <valueType>Original Value</valueType>
+    <valueNote>Object valuation note text.</valueNote>
+    <valueDate>2000-01-02T00:00:00.000Z</valueDate>
+    <valueSource>urn:cspace:publicart.collectionspace.org:personauthorities:name(person_shared):item:name(ShaamikhSafar1399604352)'Shaamikh Safar'</valueSource>
+  </ns2:valuationcontrols_common>
+  <ns2:valuationcontrols_publicart xmlns:ns2="http://collectionspace.org/services/valuationcontrol/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <insuranceGroupList>
+      <insuranceGroup>
+        <insuranceNote>Insurer Note 3</insuranceNote>
+        <insuranceRenewalDate>2002-06-06T00:00:00.000Z</insuranceRenewalDate>
+        <insurer>urn:cspace:publicart.collectionspace.org:personauthorities:name(person):item:name(Insurer34039050102)'Insurer 3'</insurer>
+        <insurancePolicyNumber>Insurer Policy Number 3</insurancePolicyNumber>
+      </insuranceGroup>
+    </insuranceGroupList>
+    <valueSourceRole>urn:cspace:publicart.collectionspace.org:vocabularies:name(valuationsourcerole):item:name(appraiser)'appraiser'</valueSourceRole>
+  </ns2:valuationcontrols_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

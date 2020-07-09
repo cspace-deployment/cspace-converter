@@ -34,7 +34,7 @@ RSpec.describe CollectionSpace::Converter::PublicArt::PublicArtPerson do
       [
         "/document/#{pa}/organizations/organization"
       ].each do |xpath|
-        context "#{xpath}" do
+        context xpath.to_s do
           let(:urn_vals) { urn_values(doc, xpath) }
           it 'is not empty' do
             verify_field_is_populated(doc, xpath)

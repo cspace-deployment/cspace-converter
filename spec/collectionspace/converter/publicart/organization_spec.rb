@@ -14,7 +14,7 @@ RSpec.describe CollectionSpace::Converter::PublicArt::PublicArtOrganization do
         "/document/#{p}/groups/group",
         "/document/#{p}/functions/function"
       ].each do |xpath|
-        context "#{xpath}" do
+        context xpath.to_s do
           it 'is empty' do
             verify_field_is_empty(doc, xpath)
           end
@@ -75,7 +75,7 @@ RSpec.describe CollectionSpace::Converter::PublicArt::PublicArtOrganization do
 #        "/document/#{pa}/placementType", #uncommment after sample data for this field is added to CSV
         "/document/#{pa}/currentPlace"
       ].each do |xpath|
-          context "#{xpath}" do
+          context xpath.to_s do
             let(:urn_vals) { urn_values(doc, xpath) }
             it 'is not empty' do
               verify_field_is_populated(doc, xpath)

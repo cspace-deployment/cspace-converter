@@ -25,7 +25,7 @@ RSpec.describe CollectionSpace::Converter::Extension::SocialMedia do
       [
         "/document/*/socialMediaGroupList/socialMediaGroup/socialMediaHandleType"
       ].each do |xpath|
-        context "#{xpath}" do
+        context xpath.to_s do
           it 'all values will be URNs' do
             expect(urn_values(doc, xpath)).not_to include('Not a URN')
           end

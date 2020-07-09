@@ -64,8 +64,7 @@ The sections are:
 
 ### Registered Authorities
 
-The list of authority record types this converter generates. This
-is also used to determine which authorities should be cached.
+The list of authority record types this converter generates.
 
 ### Registered Procedures
 

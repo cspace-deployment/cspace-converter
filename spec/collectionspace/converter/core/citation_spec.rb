@@ -6,62 +6,107 @@ RSpec.describe CollectionSpace::Converter::Core::CoreCitation do
   let(:doc) { get_doc(corecitation) }
   let(:record) { get_fixture('core_citation.xml') }
   let(:xpaths) {[
-    "/document/*/citationTermGroupList/citationTermGroup/termDisplayName",
-    "/document/*/citationTermGroupList/citationTermGroup/termTitle",
-    { xpath: "/document/*/citationTermGroupList/citationTermGroup/termLanguage", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    "/document/*/citationTermGroupList/citationTermGroup/termPrefForLang",
-    { xpath: "/document/*/citationTermGroupList/citationTermGroup/termType", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationTermGroupList/citationTermGroup/termSource", transform: ->(text) { CSURN.parse(text)[:label] } },
-    "/document/*/citationTermGroupList/citationTermGroup/termSourceID",
-    "/document/*/citationTermGroupList/citationTermGroup/termSourceDetail",
-    "/document/*/citationTermGroupList/citationTermGroup/termSourceNote",
-    "/document/*/citationTermGroupList/citationTermGroup/termVolume",
-    "/document/*/citationTermGroupList/citationTermGroup/termFullCitation",
-    "/document/*/citationTermGroupList/citationTermGroup/termSubTitle",
-    "/document/*/citationTermGroupList/citationTermGroup/termSectionTitle",
-    "/document/*/citationTermGroupList/citationTermGroup/termIssue",
-    "/document/*/citationTermGroupList/citationTermGroup/termStatus",
-    { xpath: "/document/*/citationTermGroupList/citationTermGroup/termFlag", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[1]/publicationPlace", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[2]/publicationPlace", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[1]/publisher", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[2]/publisher", transform: ->(text) { CSURN.parse(text)[:label] } },
-    "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup/pages",
-    "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup/edition",
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[1]/publicationDate/dateDisplayDate", transform: ->(text) { text.split('-')[0] } },
-    { xpath: "/document/*/citationPublicationInfoGroupList/citationPublicationInfoGroup[2]/publicationDate/dateDisplayDate", transform: ->(text) { text.split('-')[0] } },
-    { xpath: "/document/*/citationAgentInfoGroupList/citationAgentInfoGroup[1]/agent", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationAgentInfoGroupList/citationAgentInfoGroup[2]/agent", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationAgentInfoGroupList/citationAgentInfoGroup[1]/role", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationAgentInfoGroupList/citationAgentInfoGroup[2]/role", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    "/document/*/citationAgentInfoGroupList/citationAgentInfoGroup/note",
-    "/document/*/citationNote",
-    "/document/*/citationResourceIdentGroupList/citationResourceIdentGroup/resourceIdent",
-    { xpath: "/document/*/citationResourceIdentGroupList/citationResourceIdentGroup[1]/captureDate/dateDisplayDate", transform: ->(text) { text.split('-')[0] } },
-    { xpath: "/document/*/citationResourceIdentGroupList/citationResourceIdentGroup[2]/captureDate/dateDisplayDate", transform: ->(text) { text.split('-')[0] } },
-    { xpath: "/document/*/citationResourceIdentGroupList/citationResourceIdentGroup[1]/type", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationResourceIdentGroupList/citationResourceIdentGroup[2]/type", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationRelatedTermsGroupList/citationRelatedTermsGroup[1]/relatedTerm", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationRelatedTermsGroupList/citationRelatedTermsGroup[2]/relatedTerm", transform: ->(text) { CSURN.parse(text)[:label] } },
-    { xpath: "/document/*/citationRelatedTermsGroupList/citationRelatedTermsGroup[1]/relationType", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
-    { xpath: "/document/*/citationRelatedTermsGroupList/citationRelatedTermsGroup[2]/relationType", transform: ->(text) { CSURN.parse(text)[:label].downcase } },
+
+    
+
+
   ]}
 
-  context 'For maximally populuated record' do
-    it "Maps attributes correctly" do
-      test_converter(doc, record, xpaths)
-    end
-  end
-  context 'For minimally populated record' do
-    let(:attributes) { get_attributes_by_row('core', 'authcitation_core_all.csv', 11) }
-    let(:doc) { get_doc(corecitation) }
-    let(:record) { get_fixture('core_citation_row11.xml') }
-    let(:xpath_required) {[
-      "/document/*/citationTermGroupList/citationTermGroup/termDisplayName"
-    ]}
+  describe '#map_common' do
+    ns = 'citations_common'
+    context 'For maximally populuated record' do
+      context 'authority/vocab fields' do
+        [
+          "/document/#{ns}/citationAgentInfoGroupList/citationAgentInfoGroup/agent",
+          "/document/#{ns}/citationAgentInfoGroupList/citationAgentInfoGroup/role",
+          "/document/#{ns}/citationPublicationInfoGroupList/citationPublicationInfoGroup/publicationPlace",
+          "/document/#{ns}/citationPublicationInfoGroupList/citationPublicationInfoGroup/publisher",
+          "/document/#{ns}/citationRelatedTermsGroupList/citationRelatedTermsGroup/relatedTerm",
+          "/document/#{ns}/citationRelatedTermsGroupList/citationRelatedTermsGroup/relationType",
+          "/document/#{ns}/citationResourceIdentGroupList/citationResourceIdentGroup/type",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termFlag",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termLanguage",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSource",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termType"
+        ].each do |xpath|
+          context "#{xpath}" do
+            let(:urn_vals) { urn_values(doc, xpath) }
+            it 'is not empty' do
+              verify_field_is_populated(doc, xpath)
+            end
 
-    it 'Maps required field(s) correctly without falling over' do
-      test_converter(doc, record, xpath_required)
+            it 'values are URNs' do
+              verify_values_are_urns(urn_vals)
+            end
+
+            it 'URNs match sample payload' do
+              verify_urn_match(urn_vals, record, xpath)
+            end
+          end
+        end
+      end
+
+    context 'structured date fields' do
+      [
+          "/document/#{ns}/citationResourceIdentGroupList/citationResourceIdentGroup/captureDate/dateDisplayDate",
+          "/document/#{ns}/citationPublicationInfoGroupList/citationPublicationInfoGroup/publicationDate/dateDisplayDate"
+      ].each do |xpath|
+        context "#{xpath}" do
+          it 'is not empty' do
+            expect(doc.xpath(xpath).size).to_not eq(0)
+          end
+
+          it 'matches sample payload' do
+            expect(get_structured_date(doc, xpath)).to eq(get_structured_date(record, xpath))
+          end
+        end
+      end
+    end
+    
+    context 'regular fields' do
+        [
+          "/document/#{ns}/citationAgentInfoGroupList/citationAgentInfoGroup/note",
+          "/document/#{ns}/citationNote",
+          "/document/#{ns}/citationPublicationInfoGroupList/citationPublicationInfoGroup/edition",
+          "/document/#{ns}/citationPublicationInfoGroupList/citationPublicationInfoGroup/pages",
+          "/document/#{ns}/citationResourceIdentGroupList/citationResourceIdentGroup/resourceIdent",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termDisplayName",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termFullCitation",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termIssue",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termPrefForLang",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSectionTitle",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSourceDetail",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSourceID",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSourceNote",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termStatus",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termSubTitle",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termTitle",
+          "/document/#{ns}/citationTermGroupList/citationTermGroup/termVolume"
+        ].each do |xpath|
+          context "#{xpath}" do
+            it 'is not empty' do
+              verify_field_is_populated(doc, xpath)
+            end
+
+            it 'matches sample payload' do
+              verify_value_match(doc, record, xpath)
+            end
+          end
+        end
+      end
+
+    end
+    context 'For minimally populated record' do
+      let(:attributes) { get_attributes_by_row('core', 'authcitation_core_all.csv', 11) }
+      let(:doc) { get_doc(corecitation) }
+      let(:record) { get_fixture('core_citation_row11.xml') }
+      let(:xpath_required) {[
+        "/document/*/citationTermGroupList/citationTermGroup/termDisplayName"
+      ]}
+
+      it 'Maps required field(s) correctly without falling over' do
+        test_converter(doc, record, xpath_required)
+      end
     end
   end
 end

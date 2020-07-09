@@ -11,12 +11,12 @@ module CollectionSpace
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do
               xml.parent.namespace = nil
-              CoreConcept.map(xml, attributes, config)
+              CoreConcept.map_common(xml, attributes, config)
             end            
           end
         end
 
-        def self.map(xml, attributes, config)
+        def self.map_common(xml, attributes, config)
           CSXML.add xml, 'shortIdentifier', config[:identifier]
 
           pairs = {
@@ -45,16 +45,40 @@ module CollectionSpace
             'historicalstatus' => 'historicalStatus',
             'termlanguage' => 'termLanguage',
             'termprefforlang' => 'termPrefForLang',
-            'termsource' => 'termSource',
+            'termsourcelocal' => 'termSource',
+            'termsourceworldcat' => 'termSource',
             'termsourcedetail' => 'termSourceDetail',
             'termsourceid' => 'termSourceID',
-            'termsourcenote' => 'termSourceNote'
+            'termsourcenote' => 'termSourceNote',
+
+            'termdisplaynamenonpreferred' => 'termDisplayName',
+            'termnamenonpreferred' => 'termName',
+            'termqualifiernonpreferred' => 'termQualifier',
+            'termstatusnonpreferred' => 'termStatus',
+            'termtypenonpreferred' => 'termType',
+            'termflagnonpreferred' => 'termFlag',
+            'historicalstatusnonpreferred' => 'historicalStatus',
+            'termlanguagenonpreferred' => 'termLanguage',
+            'termprefforlangnonpreferred' => 'termPrefForLang',
+            'termsourcelocalnonpreferred' => 'termSource',
+            'termsourceworldcatnonpreferred' => 'termSource',
+            'termsourcedetailnonpreferred' => 'termSourceDetail',
+            'termsourceidnonpreferred' => 'termSourceID',
+            'termsourcenotenonpreferred' => 'termSourceNote'
+
           }
           term_transforms = {
-            'termsource' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourcelocal' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcat' => {'authority' => ['citationauthorities', 'worldcat']},
             'termflag' => {'vocab' => 'concepttermflag'},
             'termlanguage' => {'vocab' => 'languages'},
-            'termprefforlang' => {'special' => 'boolean'}
+            'termprefforlang' => {'special' => 'boolean'},
+
+            'termsourcelocalnonpreferred' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcatnonpreferred' => {'authority' => ['citationauthorities', 'worldcat']},
+            'termflagnonpreferred' => {'vocab' => 'concepttermflag'},
+            'termlanguagenonpreferred' => {'vocab' => 'languages'},
+            'termprefforlangnonpreferred' => {'special' => 'boolean'}
           }
           CSXML.add_single_level_group_list(
             xml, attributes,

@@ -5,10 +5,13 @@ module CollectionSpace
         ::CoreWork = CollectionSpace::Converter::Core::CoreWork
         def convert
           run do |xml|
-            CoreWork.map(xml, attributes, config)
+            CoreWork.map_common(xml, attributes, config)
           end
         end
-        def self.map(xml, attributes, config)
+        def self.map_common(xml, attributes, config)
+          #addrGroupList, addrGroup
+          Address.map_address(xml, attributes, ['place/local', 'place/tgn'])
+
           pairs = {
             'worktype' => 'workType',
             'workhistorynote' => 'workHistoryNote'
@@ -22,23 +25,44 @@ module CollectionSpace
           CSXML.add xml, 'shortIdentifier', config[:identifier] 
           #workTermGroupList, workTermGroup
           workterm_data = {
-	    "termdisplayname" => "termDisplayName",
-	    "termlanguage" => "termLanguage",
-	    "termname" => "termName",
-	    "termprefforlang" => "termPrefForLang",
-	    "termqualifier" => "termQualifier",
-	    "termsource" => "termSource",
-	    "termsourceid" => "termSourceID",
-	    "termsourcedetail" => "termSourceDetail",
-	    "termsourcenote" => "termSourceNote",
- 	    "termstatus" => "termStatus",
-	    "termtype" => "termType",
-            "termflag" => "termFlag",
-	  }
+            'termdisplayname' => 'termDisplayName',
+            'termlanguage' => 'termLanguage',
+            'termname' => 'termName',
+            'termprefforlang' => 'termPrefForLang',
+            'termqualifier' => 'termQualifier',
+            'termsourcelocal' => 'termSource',
+            'termsourceworldcat' => 'termSource',
+            'termsourceid' => 'termSourceID',
+            'termsourcedetail' => 'termSourceDetail',
+            'termsourcenote' => 'termSourceNote',
+            'termstatus' => 'termStatus',
+            'termtype' => 'termType',
+            'termflag' => 'termFlag',
+
+            'termdisplaynamenonpreferred' => 'termDisplayName',
+            'termlanguagenonpreferred' => 'termLanguage',
+            'termnamenonpreferred' => 'termName',
+            'termprefforlangnonpreferred' => 'termPrefForLang',
+            'termqualifiernonpreferred' => 'termQualifier',
+            'termsourcelocalnonpreferred' => 'termSource',
+            'termsourceworldcatnonpreferred' => 'termSource',
+            'termsourceidnonpreferred' => 'termSourceID',
+            'termsourcedetailnonpreferred' => 'termSourceDetail',
+            'termsourcenotenonpreferred' => 'termSourceNote',
+            'termstatusnonpreferred' => 'termStatus',
+            'termtypenonpreferred' => 'termType',
+            'termflagnonpreferred' => 'termFlag'
+          }
           workterm_transforms = {
             'termlanguage' => {'vocab' => 'languages'},
-            'termsource' => {'authority' => ['citationauthorities', 'citation']},
-            'termflag' => {'vocab' => 'worktermflag'}
+            'termsourcelocal' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcat' => {'authority' => ['citationauthorities', 'worldcat']},
+            'termflag' => {'vocab' => 'worktermflag'},
+
+            'termlanguagenonpreferred' => {'vocab' => 'languages'},
+            'termsourcelocalnonpreferred' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcatnonpreferred' => {'authority' => ['citationauthorities', 'worldcat']},
+            'termflagnonpreferred' => {'vocab' => 'worktermflag'}
           }
           CSXML.add_single_level_group_list(
             xml,
@@ -82,28 +106,6 @@ module CollectionSpace
             'publisher',
             publisher_data,
             publisher_transforms
-          )
-          #addrGroupList, addrGroup
-          address_data = {
-            'addresstype' => 'addressType',
-            'addressplace1' => 'addressPlace1',
-            'addressplace2' => 'addressPlace2',
-            'addressmunicipality' => 'addressMunicipality',
-            'addressstateorprovince' => 'addressStateOrProvince',
-            'addresspostcode' => 'addressPostCode',
-            'addresscountry' => 'addressCountry'
-          }
-          address_transforms = {
-            'addresscountry' => {'authority' => ['placeauthorities', 'place']},
-            'addressmunicipality' => {'authority' => ['placeauthorities', 'place']},
-            'addressstateorprovince' => {'authority' => ['placeauthorities', 'place']},
-            'addresstype' => {'vocab' => 'addresstype'}
-          }
-          CSXML.add_single_level_group_list(
-            xml, attributes,
-            'addr',
-            address_data,
-            address_transforms
           )
         end
       end

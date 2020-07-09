@@ -9,8 +9,6 @@ services:
     image: lyrasis/cspace-converter
     volumes:
       - .:/app
-      # persist the local cache generated files
-      - "${PWD}/.cspace-converter:/root/.cspace-converter"
     ports:
       - "3000:3000"
     depends_on:

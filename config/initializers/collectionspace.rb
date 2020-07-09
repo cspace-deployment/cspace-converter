@@ -13,3 +13,6 @@ end
 Dir["#{Rails.root.join('lib', 'collectionspace')}/**/*.rb"].sort.each do |lib|
   require lib
 end
+
+cache_service = CacheService.new
+cache_service.import if File.file?(cache_service.cache_file)

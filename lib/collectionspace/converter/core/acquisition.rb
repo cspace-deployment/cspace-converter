@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require_relative '../default/record'
+
 module CollectionSpace
   module Converter
     module Core
@@ -5,11 +9,11 @@ module CollectionSpace
         ::CoreAcquisition = CollectionSpace::Converter::Core::CoreAcquisition
         def convert
           run do |xml|
-            CoreAcquisition.map(xml, attributes)
+            map_common(xml, attributes)
           end
         end
 
-       def self.map(xml, attributes)
+       def map_common(xml, attributes)
          pairs = {
             'acquisitionreferencenumber' => 'acquisitionReferenceNumber',
             'acquisitionauthorizer' => 'acquisitionAuthorizer',
@@ -32,28 +36,28 @@ module CollectionSpace
             'transferoftitlenumber' => 'transferOfTitleNumber'
           }
           pairstransforms = {
-            'acquisitionauthorizer' => {'authority' => ['personauthorities', 'person']},
-            'acquisitionauthorizerdate' => {'special' => 'unstructured_date_stamp'},
-            'grouppurchasepricecurrency' => {'vocab' => 'currency'},
-            'objectofferpricecurrency' => {'vocab' => 'currency'},
-            'objectpurchaseofferpricecurrency' => {'vocab' => 'currency'},
-            'objectpurchasepricecurrency' => {'vocab' => 'currency'},
-            'originalobjectpurchasepricecurrency' => {'vocab' => 'currency'}
+            'acquisitionauthorizer' => { 'authority' => %w[personauthorities person] },
+            'acquisitionauthorizerdate' => { 'special' => 'unstructured_date_stamp' },
+            'grouppurchasepricecurrency' => { 'vocab' => 'currency' },
+            'objectofferpricecurrency' => { 'vocab' => 'currency' },
+            'objectpurchaseofferpricecurrency' => { 'vocab' => 'currency' },
+            'objectpurchasepricecurrency' => { 'vocab' => 'currency' },
+            'originalobjectpurchasepricecurrency' => { 'vocab' => 'currency '}
           }
           CSXML::Helpers.add_pairs(xml, attributes, pairs, pairstransforms)
 
           repeats = { 
-            'ownerperson' => ['owners', 'owner'],
-            'ownerorganization' => ['owners', 'owner'],
-            'acquisitionsourceperson' => ['acquisitionSources', 'acquisitionSource'],
-            'acquisitionsourceorganization' => ['acquisitionSources', 'acquisitionSource'],
-            'fieldcollectioneventname' => ['fieldCollectionEventNames', 'fieldCollectionEventName']
+            'ownerperson' => %w[owners owner],
+            'ownerorganization' => %w[owners owner],
+            'acquisitionsourceperson' => %w[acquisitionSources acquisitionSource],
+            'acquisitionsourceorganization' => %w[acquisitionSources acquisitionSource],
+            'fieldcollectioneventname' => %w[fieldCollectionEventNames fieldCollectionEventName]
           }
           repeatstransforms = {
-            'acquisitionsourceperson' => {'authority' => ['personauthorities', 'person']},
-            'acquisitionsourceorganization' => {'authority' => ['orgauthorities', 'organization']},
-            'ownerperson' => {'authority' => ['personauthorities', 'person']},
-            'ownerorganization' => {'authority' => ['orgauthorities', 'organization']}
+            'acquisitionsourceperson' => { 'authority' => %w[personauthorities person] },
+            'acquisitionsourceorganization' => { 'authority' => %w[orgauthorities organization] },
+            'ownerperson' => { 'authority' => %w[personauthorities person] },
+            'ownerorganization' => { 'authority' => %w[orgauthorities organization ]}
           }
           CSXML::Helpers.add_repeats(xml, attributes, repeats, repeatstransforms)
           #accessionDateGroup 
@@ -69,9 +73,9 @@ module CollectionSpace
             'acquisitionfundingsourceprovisos' => 'acquisitionFundingSourceProvisos',
           }
           funding_transforms = {
-            'acquisitionfundingcurrency' => {'vocab' => 'currency'},
-            'acquisitionfundingsourceorganization' => {'authority' => ['orgauthorities', 'organization']},
-            'acquisitionfundingsourceperson' => {'authority' => ['personauthorities', 'person']}
+            'acquisitionfundingcurrency' => { 'vocab' => 'currency' },
+            'acquisitionfundingsourceorganization' => { 'authority' => %w[orgauthorities organization] },
+            'acquisitionfundingsourceperson' => { 'authority' => %w[personauthorities person ]}
           }
           CSXML.add_single_level_group_list(
             xml, attributes,
@@ -90,10 +94,10 @@ module CollectionSpace
             'approvalindividual' => 'approvalIndividual'
           }
           app_transforms = {
-            'approvalstatus' => {'vocab' => 'deaccessionapprovalstatus'},
-            'approvalgroup' => {'vocab' => 'deaccessionapprovalgroup'},
-            'approvaldate' => {'special' => 'unstructured_date_stamp'},
-            'approvalindividual' => {'authority' => ['personauthorities', 'person']}
+            'approvalstatus' => { 'vocab' => 'deaccessionapprovalstatus' },
+            'approvalgroup' => { 'vocab' => 'deaccessionapprovalgroup' },
+            'approvaldate' => { 'special' => 'unstructured_date_stamp' },
+            'approvalindividual' => { 'authority' => %w[personauthorities person ]}
           }
           CSXML.add_single_level_group_list(
             xml,

@@ -1,142 +1,102 @@
+# frozen_string_literal: true
+
 class CacheService
-  def self.authorities
+  attr_reader :cache, :client, :items
+  def initialize
+    @cache = Rails.configuration.refcache
+    @client = Rails.configuration.client
+    @items = []
+    FileUtils.mkdir_p cache_dir
+  end
+
+  def authorities
     Lookup.module.registered_authorities
   end
 
-  def self.cache_dir
+  def cache_dir
     File.join(ENV['HOME'], '.cspace-converter')
   end
 
-  def self.cache_file
+  def cache_file
     File.join(cache_dir, "#{ENV.fetch('CSPACE_CONVERTER_DB_NAME')}_#{Rails.env}.csv")
   end
 
-  def self.cache_date_file
-    File.join(cache_dir, "#{ENV.fetch('CSPACE_CONVERTER_DB_NAME')}_#{Rails.env}.txt")
-  end
-
-  def self.csv_headers
-    [
-      'refname',
-      'name',
-      'identifier',
-      'parent_refname',
-      'parent_rev',
-      'type',
-      'subtype',
-      'key'
+  def csv_headers
+    %w[
+      type
+      subtype
+      term
+      refname
     ]
   end
 
-  def self.download_authorities
-    download(
-      ['refName', 'termDisplayName', 'shortIdentifier', 'workflowState'],
-      authorities
-    )
+  def download
+    process(['vocabularies'])
+    process(authorities)
+    export
   end
 
-  def self.download_vocabularies
-    download(
-      ['refName', 'displayName', 'shortIdentifier', 'workflowState'],
-      ['vocabularies']
-    )
-  end
-
-  def self.download(headers, endpoints)
-    endpoints.each do |endpoint|
-      Rails.logger.debug "Processing endpoint: #{endpoint}"
-      $collectionspace_client.all(endpoint).each do |list|
-        list_refname = list['refName']
-        list_rev     = list['rev']
-        next if CacheObject.skip_list?(list_refname, list_rev)
-
-        Rails.logger.debug "Processing list: #{list_refname}, #{list_rev}"
-        $collectionspace_client.config.include_deleted = true
-        $collectionspace_client.all("#{list['uri']}/items").each do |item|
-          refname, name, identifier, wfstate = item.values_at(*headers)
-          next unless refname
-
-          item = CacheObject.item?(refname)
-          if wfstate == 'deleted'
-            CacheObject.where(refname: refname).first.destroy if item
-            next # don't add to cache if deleted
-          end
-          next if item #  don't add to cache if already in cache
-
-          Rails.logger.debug "Cache: #{refname}"
-          CacheObject.create(
-            refname: refname,
-            name: name,
-            identifier: identifier,
-            parent_refname: list_refname,
-            parent_rev: list_rev.to_i
-          )
-        end
-        $collectionspace_client.config.include_deleted = false
-      end
+  def import
+    unless File.file? cache_file
+      Rails.logger.info "Cache not found: #{cache_file}"
+      return
     end
-  end
-
-  def self.export
-    Rails.logger.info "Exporting cache: #{cache_file}"
-
-    cache_tmp_file = "#{cache_file}.#{Time.now.to_i}.tmp"
-    headers = CacheService.csv_headers
-    CSV.open(cache_tmp_file, 'a') do |csv|
-      csv << headers
-    end
-
-    CacheObject.all.each do |object|
-      CSV.open(cache_tmp_file, 'a') do |csv|
-        csv << object.attributes.values_at(*headers)
-      end
-    end
-    FileUtils.mv cache_tmp_file, cache_file
-  end
-
-  def self.import
-    return unless File.file? cache_file
-    return unless CacheObject.count.zero?
 
     Rails.logger.info "Loading cache: #{cache_file}"
-    tracker = 1
     SmarterCSV.process(File.open(cache_file, 'r:bom|utf-8'), {
       chunk_size: 100,
       convert_values_to_numeric: true,
       required_headers: csv_headers.map(&:to_sym)
     }.merge(Rails.application.config.csv_parser_options)) do |chunk|
-      Rails.logger.debug("Processing chunk: #{tracker}")
-      CacheObject.collection.insert_many(chunk)
-      tracker += 1
+      chunk.each do |item|
+        cache.put(
+          item[:type], item[:subtype], item[:term], item[:refname]
+        )
+      end
     end
   end
 
-  def self.invalidate
-    unless File.file? cache_date_file
-      FileUtils.rm_f cache_file
-      File.open(cache_date_file, 'w') { |f| f.write Time.now }
-    end
-
-    cached_date = DateTime.parse(File.read(cache_date_file))
-    remote_date = DateTime.parse(system_setup_date)
-    if remote_date > cached_date
-      Rails.logger.warn 'Deleting cache as remote system may have been reset.'
-      FileUtils.rm_f cache_file
-    end
-  end
-
-  def self.refresh
-    FileUtils.mkdir_p cache_dir
-    invalidate
+  def refresh
+    download
     import
-    download_vocabularies
-    download_authorities
-    export
   end
 
-  def self.system_setup_date
-    $collectionspace_client.get(
-      'personauthorities/urn:cspace:name(person)'
-    ).parsed['document']['collectionspace_core']['createdAt']
+  private
+
+  def export
+    FileUtils.rm_rf cache_file if File.file? cache_file
+
+    Rails.logger.info "Exporting cache: #{cache_file}"
+    headers = csv_headers
+    CSV.open(cache_file, 'a') do |csv|
+      csv << headers
+    end
+
+    items.each do |item|
+      CSV.open(cache_file, 'a') do |csv|
+        csv << item.values_at(*headers)
+      end
+    end
+  end
+
+  def process(endpoints)
+    endpoints.each do |endpoint|
+      Rails.logger.debug "Processing endpoint: #{endpoint}"
+      client.all(endpoint).each do |list|
+        client.all("#{list['uri']}/items").each do |item|
+          refname = item['refName']
+          next unless refname
+
+          Rails.logger.debug "Processing item: #{refname}"
+          parsed = CSURN.parse(refname)
+          items << {
+            'type' => parsed[:type],
+            'subtype' => parsed[:subtype],
+            'term' => parsed[:label],
+            'refname' => refname
+          }
+        end
+      end
+    end
   end
 end

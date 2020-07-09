@@ -5,11 +5,11 @@ module CollectionSpace
         ::CoreLocation = CollectionSpace::Converter::Core::CoreLocation
         def convert
           run do |xml|
-            CoreLocation.map(xml, attributes, config)
+            CoreLocation.map_common(xml, attributes, config)
           end
         end
 
-        def self.map(xml, attributes, config)
+        def self.map_common(xml, attributes, config)
           pairs = {
             'locationtype' => 'locationType',
             'accessnote' => 'accessNote',
@@ -21,26 +21,47 @@ module CollectionSpace
           }
           CSXML::Helpers.add_pairs(xml, attributes, pairs, pairstransforms)
           CSXML.add xml, 'shortIdentifier', config[:identifier] 
+
           #locTermGroupList, locTermGroup
           locterm_data = {
-	    "termdisplayname" => "termDisplayName",
-	    "termlanguage" => "termLanguage",
-	    "termname" => "termName",
-	    "termprefforlang" => "termPrefForLang",
-	    "termqualifier" => "termQualifier",
-	    "termsource" => "termSource",
-	    "termsourceid" => "termSourceID",
-	    "termsourcedetail" => "termSourceDetail",
-	    "termsourcenote" => "termSourceNote",
- 	    "termstatus" => "termStatus",
-	    "termtype" => "termType",
-            "termflag" => "termFlag",
-            "termdisplaynamenonpreferred" => "termFormattedDisplayName"
-	  }
+            'termdisplayname' => 'termDisplayName',
+            'termlanguage' => 'termLanguage',
+            'termname' => 'termName',
+            'termprefforlang' => 'termPrefForLang',
+            'termqualifier' => 'termQualifier',
+            'termsourcelocal' => 'termSource',
+            'termsourceworldcat' => 'termSource',
+            'termsourceid' => 'termSourceID',
+            'termsourcedetail' => 'termSourceDetail',
+            'termsourcenote' => 'termSourceNote',
+            'termstatus' => 'termStatus',
+            'termtype' => 'termType',
+            'termflag' => 'termFlag',
+
+            'termdisplaynamenonpreferred' => 'termDisplayName',
+            'termlanguagenonpreferred' => 'termLanguage',
+            'termnamenonpreferred' => 'termName',
+            'termprefforlangnonpreferred' => 'termPrefForLang',
+            'termqualifiernonpreferred' => 'termQualifier',
+            'termsourcelocalnonpreferred' => 'termSource',
+            'termsourceworldcatnonpreferred' => 'termSource',
+            'termsourceidnonpreferred' => 'termSourceID',
+            'termsourcedetailnonpreferred' => 'termSourceDetail',
+            'termsourcenotenonpreferred' => 'termSourceNote',
+            'termstatusnonpreferred' => 'termStatus',
+            'termtypenonpreferred' => 'termType',
+            'termflagnonpreferred' => 'termFlag',
+          }
           locterm_transforms = {
             'termlanguage' => {'vocab' => 'languages'},
-            'termsource' => {'authority' => ['citationauthorities', 'citation']}
+            'termsourcelocal' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcat' => {'authority' => ['citationauthorities', 'worldcat']},
+
+            'termlanguagenonpreferred' => {'vocab' => 'languages'},
+            'termsourcelocalnonpreferred' => {'authority' => ['citationauthorities', 'citation']},
+            'termsourceworldcatnonpreferred' => {'authority' => ['citationauthorities', 'worldcat']}
           }
+
           CSXML.add_single_level_group_list(
             xml,
             attributes,

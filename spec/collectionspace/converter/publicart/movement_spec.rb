@@ -18,7 +18,7 @@ RSpec.describe CollectionSpace::Converter::PublicArt::PublicArtMovement do
         "/document/#{p}/inventoryContactList/inventoryContact",
         "/document/#{p}/inventoryNote",
       ].each do |xpath|
-        context "#{xpath}" do
+        context xpath.to_s do
           it 'is empty' do
             verify_field_is_empty(doc, xpath)
           end

@@ -7,7 +7,9 @@ module CollectionSpace
     module Anthro
       class AnthroCollectionObject < CoreCollectionObject
         ::AnthroCollectionObject = CollectionSpace::Converter::Anthro::AnthroCollectionObject
+        include Annotation
         include CulturalCare
+        include Locality
         def initialize(attributes, config = {})
           super(attributes, config)
           @redefined = [
@@ -52,6 +54,7 @@ module CollectionSpace
             ) do
               xml.parent.namespace = nil
               map_annotation(xml, attributes)
+
             end
 
             xml.send(
@@ -87,27 +90,10 @@ module CollectionSpace
         end
 
         def map_anthro(xml, attributes)
-          # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
-          # localityGroupList
-          # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
-          locality_data = {
-            'fieldlocplace' => 'fieldLocPlace',
-            'fieldloccounty' => 'fieldLocCounty',
-            'fieldlocstate' => 'fieldLocState',
-            'localitynote' => 'localityNote'
-          }
-
-          locality_transforms = {
-            'fieldlocplace' => { 'authority' => %w[placeauthorities place] }
-          }
-
-          CSXML.add_single_level_group_list(
-            xml, attributes,
-            'locality',
-            locality_data,
-            locality_transforms
-          )
-
+          # locality extension called here because it gets nested in the same namespace with
+          #   the rest of the anthro fields
+          map_locality(xml, attributes)
+          
           # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
           # commingledRemainsGroupList
           # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -151,31 +137,6 @@ module CollectionSpace
             commingled_transforms,
             sublist_suffix: 'GroupList',
             subgroup_suffix: 'Group'
-          )
-        end
-
-        def map_annotation(xml, attributes)
-          # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
-          # annotationGroupList
-          # -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
-          annotation_data = {
-            'annotationnote' => 'annotationNote',
-            'annotationtype' => 'annotationType',
-            'annotationdate' => 'annotationDate',
-            'annotationauthor' => 'annotationAuthor'
-          }
-
-          annotation_transforms = {
-            'annotationauthor' => { 'authority' => %w[personauthorities person] },
-            'annotationtype' => { 'vocab' => 'annotationtype' },
-            'annotationdate' => { 'special' => 'unstructured_date_string' }
-          }
-
-          CSXML.add_single_level_group_list(
-            xml, attributes,
-            'annotation',
-            annotation_data,
-            annotation_transforms
           )
         end
 

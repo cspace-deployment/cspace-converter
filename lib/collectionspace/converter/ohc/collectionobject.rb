@@ -41,7 +41,9 @@ module CollectionSpace
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do
               xml.parent.namespace = nil
+
               map_anthro(xml, attributes)
+              
             end
 
             xml.send(
@@ -50,7 +52,9 @@ module CollectionSpace
               'xmlns:xsi' => 'http://www.w3.org/2001/XMLSchema-instance'
             ) do
               xml.parent.namespace = nil
+
               map_annotation(xml, attributes)
+
             end
 
             xml.send(
@@ -118,6 +122,7 @@ module CollectionSpace
         end
 
         def map_ohc(xml, attributes)
+
           pairs = {
             'descriptionlevel' => 'descriptionLevel'
           }

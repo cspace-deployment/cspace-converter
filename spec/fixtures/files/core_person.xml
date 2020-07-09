@@ -62,11 +62,11 @@
         <termSourceDetail>detail text</termSourceDetail>
         <surName>Mellon</surName>
         <termSourceNote>source text</termSourceNote>
-        <termFormattedDisplayName>J. T. Mellon</termFormattedDisplayName>
+        <termFormattedDisplayName/>
         <initials>JM</initials>
         <termType>urn:cspace:core.collectionspace.org:vocabularies:name(persontermtype):item:name(employee)'Employee'</termType>
         <title>Dr</title>
-        <termSource>urn:cspace:core.collectionspace.org:vocabularies:name(citation):item:name(book one)'Book One'</termSource>
+        <termSource>urn:cspace:core.collectionspace.org:citationauthorities:name(citation):item:name(BookOne1583502854092)'Book One'</termSource>
         <foreName>John</foreName>
         <nameAdditions>additions text</nameAdditions>
         <termStatus>provisional</termStatus>
@@ -79,6 +79,29 @@
         <termDisplayName>John Mellon</termDisplayName>
         <termFlag>urn:cspace:core.collectionspace.org:vocabularies:name(persontermflag):item:name(birth)'birth name'</termFlag>
       </personTermGroup>
+      <personTermGroup>
+        <termSourceID/>
+        <termSourceDetail/>
+        <surName/>
+        <termSourceNote/>
+        <termFormattedDisplayName/>
+        <initials/>
+        <termType/>
+        <title/>
+        <termSource/>
+        <foreName/>
+        <nameAdditions/>
+        <termStatus/>
+        <termLanguage/>
+        <middleName/>
+        <salutation/>
+        <termName/>
+        <termQualifier/>
+        <termPrefForLang/>
+        <termDisplayName>J. T. Mellon</termDisplayName>
+        <termFlag/>
+      </personTermGroup>
+      
     </personTermGroupList>
     <shortIdentifier>JohnMellon1754567186</shortIdentifier>
     <proposed>true</proposed>

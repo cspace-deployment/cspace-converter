@@ -3,7 +3,6 @@
 module CollectionSpace
   module Converter
     module Extension
-      # Cultural Care Extension
       module CulturalCare
         ::CulturalCare = CollectionSpace::Converter::Extension::CulturalCare
         def map_cultural_care(xml, attributes)

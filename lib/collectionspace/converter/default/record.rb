@@ -20,9 +20,9 @@ module CollectionSpace
 
         # default implementation used by stub authorities / vocabularies
         def map(xml, attributes)
-          CSXML.add xml, 'shortIdentifier', attributes["shortidentifier"]
-          CSXML.add_group_list xml, attributes["termtype"], [{
-            "termDisplayName" => attributes["termdisplayname"],
+          CSXML.add xml, 'shortIdentifier', attributes['shortidentifier']
+          CSXML.add_group_list xml, attributes['termtype'], [{
+            'termDisplayName' => attributes['termdisplayname'],
           }]
         end
 

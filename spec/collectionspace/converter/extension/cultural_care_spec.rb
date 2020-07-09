@@ -6,40 +6,49 @@ RSpec.describe CollectionSpace::Converter::Extension::CulturalCare do
   let(:doc) { get_doc(co) }
   let(:record) { get_fixture('lhmc_collectionobject_row2.xml') }
 
-  describe 'map_cultural_care' do
-    cc = 'collectionobject_culturalcare'
-    context 'text field' do
-      [
-        "/document/#{cc}/culturalCareNotes/culturalCareNote",
-        "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/limitationDetails",
-        "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/requestDate"
-      ].each do |xpath|
-        context "for xpath: #{xpath}" do
-          it 'matches sample payload' do
-            expect(get_text(doc, xpath)).to eq(get_text(record, xpath))
-          end
-        end
-      end
-    end
+  describe '#map_cultural_care' do
+    cc = 'collectionobjects_culturalcare'
 
-      context 'vocab field' do
+    context 'authority/vocab fields' do
       [
         "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/requester",
         "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/limitationLevel",
         "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/limitationType",
         "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/requestOnBehalfOf"
       ].each do |xpath|
-        context "#{xpath}" do
-          it 'all values will be URNs' do
-            expect(urn_values(doc, xpath)).not_to include('Not a URN')
+        context xpath.to_s do
+          let(:urn_vals) { urn_values(doc, xpath) }
+          it 'is not empty' do
+            verify_field_is_populated(doc, xpath)
           end
-          
+
+          it 'values are URNs' do
+            verify_values_are_urns(urn_vals)
+          end
+
           it 'URNs match sample payload' do
-            expect(urn_values(doc, xpath)).to eq(urn_values(record, xpath))
+            verify_urn_match(urn_vals, record, xpath)
           end
         end
       end
-      end
     end
-  end
 
+    context 'regular fields' do
+        [
+        "/document/#{cc}/culturalCareNotes/culturalCareNote",
+        "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/limitationDetails",
+        "/document/#{cc}/accessLimitationsGroupList/accessLimitationsGroup/requestDate"
+        ].each do |xpath|
+          context xpath.to_s do
+            it 'is not empty' do
+              verify_field_is_populated(doc, xpath)
+            end
+
+            it 'matches sample payload' do
+              verify_value_match(doc, record, xpath)
+            end
+          end
+        end
+      end
+  end
+end

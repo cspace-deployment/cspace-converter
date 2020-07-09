@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'batches',                     to: 'batches#index'
   get 'batches/:batch/:for',         to: 'batches#show'
   delete 'batches/:id',              to: 'batches#destroy', as: :batch
-  get 'cache',                       to: 'cache_objects#index'
   get 'connection',                  to: 'sites#connection', as: 'connection'
   get  'import',                     to: 'imports#new'
   post 'import',                     to: 'imports#create'
@@ -23,7 +22,6 @@ Rails.application.routes.draw do
   post 'procedures/:id/transfer',    to: 'procedure_objects#transfer'
   post 'procedures/:id/update',      to: 'procedure_objects#update'
   post 'nuke',                       to: 'sites#nuke', as: 'nuke'
-  post 'recache',                    to: 'sites#recache', as: 'recache'
   get  'relationships',              to: 'relationship_objects#index'
   get  'relationships/:id',          to: 'relationship_objects#show', as: 'relationship'
   post 'relationships/:id/ping',     to: 'relationship_objects#ping'

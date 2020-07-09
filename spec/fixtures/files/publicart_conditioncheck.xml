@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="conditionchecks">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-15T10:01:46.787Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:conditionchecks:id(17bdeffb-7b99-48be-a304)</refName>
+    <uri>/conditionchecks/17bdeffb-7b99-48be-a304</uri>
+    <updatedAt>2020-05-15T10:01:46.787Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:conditionchecks_common xmlns:ns2="http://collectionspace.org/services/conditioncheck" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <salvagePriorityCodeGroupList/>
+    <conditionCheckGroupList>
+      <conditionCheckGroup>
+        <conditionNote>Condition note text 1.</conditionNote>
+        <condition>needsnowork</condition>
+        <conditionDate>2000-03-01T00:00:00.000Z</conditionDate>
+      </conditionCheckGroup>
+      <conditionCheckGroup>
+        <conditionNote>Condition note text 2.</conditionNote>
+        <condition>injeopardy</condition>
+        <conditionDate>2000-03-02T00:00:00.000Z</conditionDate>
+      </conditionCheckGroup>
+    </conditionCheckGroupList>
+    <displayRecommendations>Display recommendations text.</displayRecommendations>
+    <objectAuditCategory>low</objectAuditCategory>
+    <legalRequirements>Legal license requirements text.</legalRequirements>
+    <handlingRecommendations>Handling recommendations text.</handlingRecommendations>
+    <conditionCheckMethod>observed</conditionCheckMethod>
+    <conditionCheckRefNumber>CC2000.001</conditionCheckRefNumber>
+    <legalReqsHeldGroupList>
+      <legalReqsHeldGroup>
+        <legalReqsHeld>Legal license requirements held text 1.</legalReqsHeld>
+        <legalReqsHeldBeginDate>2000-09-01T00:00:00.000Z</legalReqsHeldBeginDate>
+        <legalReqsHeldRenewDate>2000-11-01T00:00:00.000Z</legalReqsHeldRenewDate>
+        <legalReqsHeldEndDate>2000-10-01T00:00:00.000Z</legalReqsHeldEndDate>
+        <legalReqsHeldNumber/>
+      </legalReqsHeldGroup>
+      <legalReqsHeldGroup>
+        <legalReqsHeld>Legal license requirements held text 2.</legalReqsHeld>
+        <legalReqsHeldBeginDate>2000-09-02T00:00:00.000Z</legalReqsHeldBeginDate>
+        <legalReqsHeldRenewDate>2000-11-02T00:00:00.000Z</legalReqsHeldRenewDate>
+        <legalReqsHeldEndDate>2000-10-02T00:00:00.000Z</legalReqsHeldEndDate>
+        <legalReqsHeldNumber/>
+      </legalReqsHeldGroup>
+    </legalReqsHeldGroupList>
+    <conditionCheckNote>Condition check assessment note text.</conditionCheckNote>
+    <conditionChecker>urn:cspace:publicart.collectionspace.org:orgauthorities:name(organization):item:name(PrincetonUniversityArtMuseum373000491)'Princeton University Art Museum'</conditionChecker>
+    <techAssessmentGroupList>
+      <techAssessmentGroup>
+        <techAssessment>Technical assessment text 1.</techAssessment>
+        <techAssessmentDate>2000-06-01T00:00:00.000Z</techAssessmentDate>
+      </techAssessmentGroup>
+      <techAssessmentGroup>
+        <techAssessment>Technical assessment text 2.</techAssessment>
+        <techAssessmentDate>2000-06-02T00:00:00.000Z</techAssessmentDate>
+      </techAssessmentGroup>
+    </techAssessmentGroupList>
+    <hazardGroupList/>
+    <completenessGroupList>
+      <completenessGroup>
+        <completenessDate>2000-02-01T00:00:00.000Z</completenessDate>
+        <completeness>complete</completeness>
+        <completenessNote>Completeness note text 1.</completenessNote>
+      </completenessGroup>
+      <completenessGroup>
+        <completenessDate>2000-02-02T00:00:00.000Z</completenessDate>
+        <completeness>fragmented</completeness>
+        <completenessNote>Completeness note text 2.</completenessNote>
+      </completenessGroup>
+    </completenessGroupList>
+    <conditionCheckReason>conservation</conditionCheckReason>
+    <conditionCheckAssessmentDate>2000-01-01T00:00:00.000Z</conditionCheckAssessmentDate>
+    <envConditionNoteGroupList>
+      <envConditionNoteGroup>
+        <envConditionNoteDate>2000-04-01T00:00:00.000Z</envConditionNoteDate>
+        <envConditionNote>Environmental condition note text 1.</envConditionNote>
+      </envConditionNoteGroup>
+      <envConditionNoteGroup>
+        <envConditionNoteDate>2000-04-02T00:00:00.000Z</envConditionNoteDate>
+        <envConditionNote>Environmental condition note text 2.</envConditionNote>
+      </envConditionNoteGroup>
+    </envConditionNoteGroupList>
+    <conservationTreatmentPriority>medium</conservationTreatmentPriority>
+    <nextConditionCheckDate>2000-05-01T00:00:00.000Z</nextConditionCheckDate>
+    <specialRequirements>Special requirements text.</specialRequirements>
+    <envRecommendations>Environmental recommendations text.</envRecommendations>
+  </ns2:conditionchecks_common>
+  <ns2:conditionchecks_publicart xmlns:ns2="http://collectionspace.org/services/conditioncheck/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <installationRecommendations>installationcRecommendations Text 1</installationRecommendations>
+  </ns2:conditionchecks_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

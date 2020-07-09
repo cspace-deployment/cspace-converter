@@ -104,7 +104,7 @@ class ImportService
     end
 
     def names_for(display_name)
-      display_name.split(object.delimiter).map(&:strip)
+      display_name.split(object.delimiter).map(&:strip).reject{ |e| e.empty? }
     end
 
     def process
@@ -174,7 +174,7 @@ class ImportService
 
       add_vocabulary(
         name_field: config['name_field'],
-        subtype: object.csv_data['vocabulary']
+        subtype: config['vocabulary_subtype']
       )
     end
   end

@@ -54,7 +54,7 @@ RSpec.describe CollectionSpace::Converter::Core::CoreOrganization do
           "#{p}/organizationRecordTypes/organizationRecordType",
           "#{p}/orgTermGroupList/orgTermGroup/termLanguage",
         ].each do |xpath|
-          context "#{xpath}" do
+          context xpath.to_s do
             it 'all values will be URNs' do
               expect(urn_values(doc, xpath)).not_to include('Not a URN')
             end

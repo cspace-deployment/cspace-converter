@@ -1,7 +1,7 @@
 require 'uri'
 
 class RemoteActionService
-  attr_reader :object, :service
+  attr_reader :client, :object, :service
 
   class Status
     attr_accessor :success, :message
@@ -28,6 +28,7 @@ class RemoteActionService
   end
 
   def initialize(object)
+    @client  = Rails.configuration.client
     @object  = object
     @service = Lookup.record_class(object.type).service(object.subtype)
   end
@@ -63,7 +64,7 @@ class RemoteActionService
     if object.has_csid_and_uri?
       Rails.logger.debug("Deleting: #{object.identifier}")
       begin
-        response = $collectionspace_client.delete(object.uri)
+        response = client.delete(object.uri)
         if response.result.success?
           object.update_attributes!(csid: nil, uri:  nil)
           status.good "Deleted: #{object.identifier}"
@@ -87,7 +88,7 @@ class RemoteActionService
         blob_uri = object.data_object.csv_data.fetch('bloburi', nil)
         blob_uri = URI.encode blob_uri if !blob_uri.blank?
         params   = (blob_uri && object.type == 'Media') ? { query: { 'blobUri' => blob_uri } } : {}
-        response = $collectionspace_client.post(service[:path], object.content, params)
+        response = client.post(service[:path], object.content, params)
         if response.result.success?
           # http://localhost:1980/cspace-services/collectionobjects/7e5abd18-5aec-4b7f-a10c
           csid = response.result.headers['Location'].split('/')[-1]
@@ -111,7 +112,7 @@ class RemoteActionService
     if object.has_csid_and_uri?
       Rails.logger.debug("Updating: #{object.identifier}")
       begin
-        response = $collectionspace_client.put(object.uri, object.content)
+        response = client.put(object.uri, object.content)
         if response.result.success?
           status.good "Updated: #{object.identifier}"
         else
@@ -165,7 +166,7 @@ class RemoteActionService
   end
 
   def self.perform_relations_request(subject_csid:, object_csid:)
-    $collectionspace_client.get(
+    Rails.configuration.client.get(
       'relations', query: { 'sbj' => subject_csid, 'obj' => object_csid }
     )
   end
@@ -173,11 +174,11 @@ class RemoteActionService
   def self.perform_search_request(service:, value:)
     search_args = {
       path: service[:path],
-      type: "#{service[:schema]}_common",
+      namespace: "#{service[:schema]}_common",
       field: service[:identifier_field],
       expression: "= '#{value}'"
     }
     query = CollectionSpace::Search.new.from_hash search_args
-    $collectionspace_client.search(query)
+    Rails.configuration.client.search(query)
   end
 end

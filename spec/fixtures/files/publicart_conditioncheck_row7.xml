@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document name="conditionchecks">
+  <ns2:collectionspace_core xmlns:ns2="http://collectionspace.org/collectionspace_core/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <createdAt>2020-05-15T18:27:37.125Z</createdAt>
+    <updatedBy>admin@publicart.collectionspace.org</updatedBy>
+    <createdBy>admin@publicart.collectionspace.org</createdBy>
+    <workflowState>project</workflowState>
+    <tenantId>5000</tenantId>
+    <refName>urn:cspace:publicart.collectionspace.org:conditionchecks:id(2594f23b-6c5c-47ad-8bba)</refName>
+    <uri>/conditionchecks/2594f23b-6c5c-47ad-8bba</uri>
+    <updatedAt>2020-05-15T18:27:37.125Z</updatedAt>
+  </ns2:collectionspace_core>
+  <ns2:conditionchecks_common xmlns:ns2="http://collectionspace.org/services/conditioncheck" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <salvagePriorityCodeGroupList/>
+    <conditionCheckGroupList>
+      <conditionCheckGroup>
+        <conditionNote>Condition note text.</conditionNote>
+        <condition>exhibitableneedswork</condition>
+        <conditionDate>2000-03-06T00:00:00.000Z</conditionDate>
+      </conditionCheckGroup>
+    </conditionCheckGroupList>
+    <displayRecommendations>Display recommendations text.</displayRecommendations>
+    <objectAuditCategory>high</objectAuditCategory>
+    <legalRequirements>Legal license requirements text.</legalRequirements>
+    <handlingRecommendations>Handling recommendations text.</handlingRecommendations>
+    <conditionCheckMethod>new method entry</conditionCheckMethod>
+    <conditionCheckRefNumber>CC2000.006</conditionCheckRefNumber>
+    <legalReqsHeldGroupList>
+      <legalReqsHeldGroup>
+        <legalReqsHeld>Legal license requirements held text.</legalReqsHeld>
+        <legalReqsHeldBeginDate>2000-09-06T00:00:00.000Z</legalReqsHeldBeginDate>
+        <legalReqsHeldRenewDate>2000-11-06T00:00:00.000Z</legalReqsHeldRenewDate>
+        <legalReqsHeldEndDate>2000-10-06T00:00:00.000Z</legalReqsHeldEndDate>
+        <legalReqsHeldNumber/>
+      </legalReqsHeldGroup>
+    </legalReqsHeldGroupList>
+    <conditionCheckNote>Condition check assessment note text.</conditionCheckNote>
+    <conditionChecker>urn:cspace:publicart.collectionspace.org:personauthorities:name(person_shared):item:name(MadrePaulino980637483)'Madre Paulino'</conditionChecker>
+    <techAssessmentGroupList>
+      <techAssessmentGroup>
+        <techAssessment>Technical assessment text.</techAssessment>
+        <techAssessmentDate>2000-06-06T00:00:00.000Z</techAssessmentDate>
+      </techAssessmentGroup>
+    </techAssessmentGroupList>
+    <hazardGroupList/>
+    <completenessGroupList>
+      <completenessGroup>
+        <completenessDate>2000-02-06T00:00:00.000Z</completenessDate>
+        <completeness>incomplete</completeness>
+        <completenessNote>Completeness note text.</completenessNote>
+      </completenessGroup>
+    </completenessGroupList>
+    <conditionCheckAssessmentDate>2000-01-06T00:00:00.000Z</conditionCheckAssessmentDate>
+    <envConditionNoteGroupList>
+      <envConditionNoteGroup>
+        <envConditionNoteDate>2000-04-06T00:00:00.000Z</envConditionNoteDate>
+        <envConditionNote>Environmental condition note text.</envConditionNote>
+      </envConditionNoteGroup>
+    </envConditionNoteGroupList>
+    <conservationTreatmentPriority>low</conservationTreatmentPriority>
+    <nextConditionCheckDate>2000-05-06T00:00:00.000Z</nextConditionCheckDate>
+    <specialRequirements>Special requirements text.</specialRequirements>
+  </ns2:conditionchecks_common>
+  <ns2:conditionchecks_publicart xmlns:ns2="http://collectionspace.org/services/conditioncheck/local/publicart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <installationRecommendations>installationcRecommendations Text 6</installationRecommendations>
+  </ns2:conditionchecks_publicart>
+  <ns2:account_permission xmlns:ns2="http://collectionspace.org/services/authorization">
+    <account>
+      <accountId>4760cb4a-e3fe-4277-837a-13de6c454322</accountId>
+      <screenName>Administrator</screenName>
+      <userId>admin@publicart.collectionspace.org</userId>
+      <tenantId>5000</tenantId>
+    </account>
+  </ns2:account_permission>
+</document>

@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - mongo
     environment:
@@ -19,6 +19,7 @@ services:
       CSPACE_CONVERTER_MODULE: Core
       CSPACE_CONVERTER_USERNAME: admin@core.collectionspace.org
       CSPACE_CONVERTER_PASSWORD: Administrator
+      PORT: 3001
       RAILS_ENV: development
   mongo:
     image: mongo:3.2

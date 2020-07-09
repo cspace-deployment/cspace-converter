@@ -9,14 +9,6 @@ module RemoteActionable
     perform(:ping, params[:category])
   end
 
-  def reset_cache
-    if Lookup.async?
-      CacheJob.perform_later
-    else
-      CacheJob.perform_now
-    end
-  end
-
   def transfer
     perform(:transfer, params[:category])
   end
